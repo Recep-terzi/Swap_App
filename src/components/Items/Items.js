@@ -5,7 +5,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import "./Items.Module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
 import ReactStarsRating from "react-awesome-stars-rating";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems, setPage } from "../../redux/swapSlice";
