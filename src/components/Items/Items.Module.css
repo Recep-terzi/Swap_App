@@ -32,10 +32,7 @@
   align-content: stretch;
   border: none;
 }
-.items-card {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-}
+
 .card {
   margin: 10px;
   border: none;
@@ -67,4 +64,12 @@
   margin-top: 10px;
   font-weight: bold;
   color: red;
+}
+
+.card-link {
+  color: #000;
+  text-decoration: none;
+}
+.card-link:hover {
+  color: #000;
 }

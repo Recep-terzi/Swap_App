@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Home from "../Home/Home";
+import ItemsDetail from "../ItemsDetail/ItemsDetail";
 import "./Navbar.Module.css";
 // import pyson from "../../assets/pyson.png";
+
 const Navbar = () => {
   useEffect(() => {
     let arrow = document.querySelectorAll(".arrow");
@@ -184,7 +187,7 @@ const Navbar = () => {
                 <i className="fa-solid fa-user"></i>
               </div>
               <div className="name-job">
-                <div className="profile_name">Recep Terzi</div>
+                <div className="profile_name">Recep</div>
                 <div className="job">Web Desginer</div>
               </div>
               <i className="bx bx-log-out"></i>
@@ -197,7 +200,6 @@ const Navbar = () => {
           <i className="bx bx-menu"></i>
           <span className="text">Welcome to Swap App!</span>
         </div>
-        <Home />
       </section>
     </>
   );

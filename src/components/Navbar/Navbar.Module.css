@@ -211,7 +211,6 @@
 .home-section {
   position: relative;
   background: #e4e9f7;
-  height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
@@ -256,5 +255,38 @@
   .sidebar.closes ~ .home-section {
     width: 100%;
     left: 0;
+  }
+  .bx-collection,
+  .bx-grid-alt,
+  .bx-book-alt,
+  .bx-pie-chart-alt-2,
+  .bx-line-chart,
+  .bx-plug,
+  .bx-compass,
+  .bx-history,
+  .bx-cog {
+    color: black;
+  }
+  .sidebar .logo-details i {
+    color: #e4e9f7;
+  }
+  .nav-links {
+    margin-top: 30px;
+  }
+  .fa-solid {
+    color: #e4e9f7;
+  }
+  .sidebar .nav-links li i {
+    color: #e4e9f7;
+  }
+  .home-section .home-content .text {
+    font-size: 20px;
+  }
+  .sidebar .profile-details .name-job,
+  .bx-log-out {
+    display: none;
+  }
+  .sidebar .profile-details {
+    width: 78px;
   }
 }
