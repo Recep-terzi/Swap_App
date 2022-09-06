@@ -5,14 +5,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/swapSlice";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
+import { Carousel } from "react-responsive-carousel";
+import notebook from "../../assets/notebook.jpg";
 const ItemsDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -30,6 +24,7 @@ const ItemsDetail = () => {
     });
   }, [dispatch, id]);
   console.log(detail);
+
   return (
     <div className="detail-container">
       {detail && (
@@ -43,7 +38,7 @@ const ItemsDetail = () => {
                   </div>
                 ))}{" "} */}
                 {/* <ImageGallery items={info.image} /> */}
-                <CarouselProvider
+                {/* <CarouselProvider
                   naturalSlideWidth={100}
                   naturalSlideHeight={125}
                   totalSlides={3}
@@ -57,7 +52,7 @@ const ItemsDetail = () => {
                   </Slider>
                   <ButtonBack>Back</ButtonBack>
                   <ButtonNext>Next</ButtonNext>
-                </CarouselProvider>
+                </CarouselProvider> */}
               </div>
             </div>
           ))}
