@@ -21,7 +21,7 @@ const Navbar = () => {
     <>
       <div className="sidebar closes">
         <div className="logo-details">
-          <i class="fa-sharp fa-solid fa-p"></i>
+          <i className="fa-sharp fa-solid fa-p"></i>
           <span className="logo_name">Pyson</span>
         </div>
         <ul className="nav-links">
@@ -181,10 +181,10 @@ const Navbar = () => {
           <li>
             <div className="profile-details">
               <div className="profile-content">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
               </div>
               <div className="name-job">
-                <div className="profile_name">Prem Shahi</div>
+                <div className="profile_name">Recep Terzi</div>
                 <div className="job">Web Desginer</div>
               </div>
               <i className="bx bx-log-out"></i>
