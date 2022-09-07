@@ -3,9 +3,11 @@ import Items from "../Items/Items";
 import "./Home.Module.css";
 import clothes from "../../assets/clothes.png";
 import swap from "../../assets/swap.png";
+import Navbar from "../Navbar/Navbar";
 const Home = () => {
   return (
     <>
+      <Navbar />
       <div className="slider">
         <p>Welcome to Swap App!</p>
       </div>

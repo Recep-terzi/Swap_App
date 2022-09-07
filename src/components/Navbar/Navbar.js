@@ -169,14 +169,14 @@ const Navbar = () => {
             </ul>
           </li>
           <li>
-            <a href="/">
-              <i className="bx bx-cog"></i>
-              <span className="link_name">Setting</span>
+            <a href="/login">
+              <i class="fa-solid fa-user"></i>
+              <span className="link_name">Login</span>
             </a>
             <ul className="sub-menu blank">
               <li>
                 <a className="link_name" href="/">
-                  Setting
+                  Login
                 </a>
               </li>
             </ul>

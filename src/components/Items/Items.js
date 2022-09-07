@@ -9,6 +9,7 @@ import ReactStarsRating from "react-awesome-stars-rating";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems, setPage } from "../../redux/swapSlice";
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Items = () => {
   const items = useSelector((state) => state.swap.items);
