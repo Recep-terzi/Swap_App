@@ -5,6 +5,7 @@ export const swapSlice = createSlice({
   initialState: {
     items: [],
     detail: [],
+    login: false,
   },
   reducers: {
     getItems: (state, action) => {
@@ -13,8 +14,11 @@ export const swapSlice = createSlice({
     getDetail: (state, action) => {
       state.detail = action.payload;
     },
+    setLogin: (state, action) => {
+      state.login = action.payload;
+    },
   },
 });
 
-export const { getItems, getDetail } = swapSlice.actions;
+export const { getItems, getDetail, setLogin } = swapSlice.actions;
 export default swapSlice.reducer;

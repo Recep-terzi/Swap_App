@@ -1,10 +1,12 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { auth } from "../../firebase/config";
 import Home from "../Home/Home";
 import ItemsDetail from "../ItemsDetail/ItemsDetail";
 import "./Navbar.Module.css";
 // import pyson from "../../assets/pyson.png";
-
 const Navbar = () => {
   useEffect(() => {
     let arrow = document.querySelectorAll(".arrow");
@@ -20,6 +22,9 @@ const Navbar = () => {
       sidebar.classList.toggle("closes");
     });
   });
+
+  const login = useSelector((state) => state.swap.login);
+  console.log(login);
   return (
     <>
       <div className="sidebar closes">
@@ -29,158 +34,175 @@ const Navbar = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="bx bx-grid-alt"></i>
               <span className="link_name">Dashboard</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Category
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/">
                 <i className="bx bx-collection"></i>
                 <span className="link_name">Category</span>
-              </a>
+              </Link>
               <i className="bx bxs-chevron-down arrow"></i>
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Category
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">HTML & CSS</a>
+                <Link to="/">HTML & CSS</Link>
               </li>
               <li>
-                <a href="/">JavaScript</a>
+                <Link to="/">JavaScript</Link>
               </li>
               <li>
-                <a href="/">PHP & MySQL</a>
+                <Link to="/">PHP & MySQL</Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/">
                 <i className="bx bx-book-alt"></i>
                 <span className="link_name">Posts</span>
-              </a>
+              </Link>
               <i className="bx bxs-chevron-down arrow"></i>
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Posts
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">Web Design</a>
+                <Link to="/">Web Design</Link>
               </li>
               <li>
-                <a href="/">Login Form</a>
+                <Link to="/">Login Form</Link>
               </li>
               <li>
-                <a href="/">Card Design</a>
+                <Link to="/">Card Design</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="bx bx-pie-chart-alt-2"></i>
               <span className="link_name">Analytics</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Analytics
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="bx bx-line-chart"></i>
               <span className="link_name">Chart</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Chart
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/">
                 <i className="bx bx-plug"></i>
                 <span className="link_name">Plugins</span>
-              </a>
+              </Link>
               <i className="bx bxs-chevron-down arrow"></i>
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Plugins
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">UI Face</a>
+                <Link to="/">UI Face</Link>
               </li>
               <li>
-                <a href="/">Pigments</a>
+                <Link to="/">Pigments</Link>
               </li>
               <li>
-                <a href="/">Box Icons</a>
+                <Link to="/">Box Icons</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="bx bx-compass"></i>
               <span className="link_name">Explore</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   Explore
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="bx bx-history"></i>
               <span className="link_name">History</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/">
                   History
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
-          <li>
-            <a href="/login">
-              <i class="fa-solid fa-user"></i>
-              <span className="link_name">Login</span>
-            </a>
-            <ul className="sub-menu blank">
-              <li>
-                <a className="link_name" href="/">
-                  Login
-                </a>
-              </li>
-            </ul>
-          </li>
+          {login && (
+            <li onClick={() => signOut(auth)}>
+              <Link to="/login">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span className="link_name">Çıkış Yap</span>
+              </Link>
+              <ul className="sub-menu blank">
+                <li>
+                  <Link className="link_name" to="/">
+                    Çıkış Yap
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          )}
+          {!login && (
+            <li>
+              <Link to="/login">
+                <i class="fa-solid fa-user"></i>
+                <span className="link_name">Login</span>
+              </Link>
+              <ul className="sub-menu blank">
+                <li>
+                  <Link className="link_name" to="/">
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          )}
           <li>
             <div className="profile-details">
               <div className="profile-content">
