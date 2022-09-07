@@ -4,6 +4,7 @@ import "./Home.Module.css";
 import clothes from "../../assets/clothes.png";
 import swap from "../../assets/swap.png";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <>
@@ -58,6 +59,7 @@ const Home = () => {
           <Items />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
