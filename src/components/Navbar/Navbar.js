@@ -174,19 +174,34 @@ const Navbar = () => {
             </ul>
           </li>
           {login && (
-            <li onClick={() => signOut(auth)}>
-              <Link to="/login">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span className="link_name">Çıkış Yap</span>
-              </Link>
-              <ul className="sub-menu blank">
-                <li>
-                  <Link className="link_name" to="/">
-                    Çıkış Yap
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            <>
+              <li onClick={() => signOut(auth)}>
+                <Link to="/login">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <span className="link_name">Çıkış Yap</span>
+                </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link className="link_name" to="/">
+                      Çıkış Yap
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/additem">
+                  <i class="fa-solid fa-square-plus"></i>
+                  <span className="link_name">Ürün Ekle</span>
+                </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link className="link_name" to="/">
+                      Ürün Ekle
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            </>
           )}
           {!login && (
             <li>

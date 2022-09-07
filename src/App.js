@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import AddItem from "./components/AddItem/AddItem";
 import Home from "./components/Home/Home";
 import ItemsDetail from "./components/ItemsDetail/ItemsDetail";
 import Login from "./components/Login/Login";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/detail/:id" element={<ItemsDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/additem" element={<AddItem />} />
       </Routes>
     </>
   );
