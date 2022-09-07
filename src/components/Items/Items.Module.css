@@ -40,12 +40,14 @@
 .items-div {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 200px;
 }
 @media screen and (max-width: 768px) {
   .items-div {
     width: 300px;
     text-align: center;
     justify-content: center;
+    margin-top: 0;
   }
 }
 

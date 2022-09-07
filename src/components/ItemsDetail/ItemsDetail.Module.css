@@ -1,4 +1,56 @@
 .detail-container {
   padding-left: 220px;
   padding-right: 220px;
+  margin-top: 100px;
+}
+.row {
+  align-items: center;
+}
+.info-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.info-star {
+  margin-bottom: 30px;
+}
+
+.info-price {
+  color: red;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.info-price span {
+  color: black;
+}
+.info-text {
+  margin-top: 30px;
+  font-weight: bold;
+  opacity: 0.7;
+}
+.info-button {
+  display: flex;
+  margin-top: 30px;
+}
+.info-button .teklifBtn {
+  width: 100px;
+  height: 50px;
+  margin-right: 20px;
+  border: none;
+  background-color: #222831;
+  color: #fff;
+  border-radius: 5px;
+}
+.info-button .satinAlBtn {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: #222831;
+  color: #fff;
+  border-radius: 5px;
+}
+.info-button .teklifBtn:hover,
+.info-button .satinAlBtn:hover {
+  background-color: #393e46;
+  color: #e3e3e3;
+  transition: 0.3s;
 }
