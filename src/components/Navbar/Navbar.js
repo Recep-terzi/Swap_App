@@ -3,11 +3,14 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/config";
-import Home from "../Home/Home";
-import ItemsDetail from "../ItemsDetail/ItemsDetail";
+import Modal from "../Modal/Modal";
 import "./Navbar.Module.css";
-// import pyson from "../../assets/pyson.png";
 const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   useEffect(() => {
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
@@ -189,13 +192,22 @@ const Navbar = () => {
                 </ul>
               </li>
               <li>
-                <Link to="/additem">
-                  <i class="fa-solid fa-square-plus"></i>
+                <a>
+                  <i
+                    class="fa-solid fa-square-plus"
+                    onClick={handleClickOpen}
+                  ></i>
                   <span className="link_name">Ürün Ekle</span>
-                </Link>
+
+                  <Modal
+                    handleClickOpen={handleClickOpen}
+                    open={open}
+                    setOpen={setOpen}
+                  />
+                </a>
                 <ul className="sub-menu blank">
                   <li>
-                    <Link className="link_name" to="/">
+                    <Link className="link_name" to="/additem">
                       Ürün Ekle
                     </Link>
                   </li>

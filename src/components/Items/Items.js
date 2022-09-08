@@ -41,7 +41,7 @@ const Items = () => {
                 <Link to={`/detail/${item.id}`} className="card-link">
                   <div className="card">
                     <div className="card-header">
-                      <img src={item.first_image} alt="" className="card-img" />
+                      <img src={item.image} alt="" className="card-img" />
                     </div>
                     <div className="card-body">
                       <div className="card-titles">{item.title}</div>
