@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./redux/swapSlice";
 import { auth } from "./firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
+import MyProducts from "./components/MyProducts/MyProducts";
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -30,17 +31,14 @@ function App() {
   }, [dispatch]);
   return (
     <>
-      {!user ? (
-        <Login />
-      ) : (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail/:id" element={<ItemsDetail />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/modal" element={<Modal />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/detail/:id" element={<ItemsDetail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/modal" element={<Modal />} />
+        <Route path="/products" element={<MyProducts />} />
+      </Routes>
     </>
   );
 }

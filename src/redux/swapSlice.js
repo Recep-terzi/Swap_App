@@ -3,33 +3,26 @@ import { createSlice } from "@reduxjs/toolkit";
 export const swapSlice = createSlice({
   name: "swap",
   initialState: {
-    // items: [],
-    // detail: [],
-    // user: null,
+    items: [],
+    productItems: [],
     user: null,
-    // login: false,
+    hidden: false,
   },
   reducers: {
     getItems: (state, action) => {
       state.items = action.payload;
     },
-    // getDetail: (state, action) => {
-    //   state.detail = action.payload;
-    // },
-    // setLogin: (state, action) => {
-    //   state.login = action.payload;
-    // },
-    // setUser: (state, action) => {
-    //   state.user = action.payload;
-    // },
-    // setLogout: (state) => {
-    //   state.user = null;
-    // },
+    getProductItems: (state, action) => {
+      state.productItems = action.payload;
+    },
     login: (state, action) => {
       state.user = action.payload;
     },
     logout: (state) => {
       state.user = null;
+    },
+    setHidden: (state, action) => {
+      state.hidden = action.payload;
     },
   },
 });
@@ -41,6 +34,8 @@ export const {
   setUser,
   setLogout,
   login,
+  getProductItems,
+  setHidden,
   logout,
 } = swapSlice.actions;
 export const selectUser = (state) => state.swap.user;

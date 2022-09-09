@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import "./SignIn.Module.css";
 import swap from "../../assets/swap.png";
 import { Link, useNavigate } from "react-router-dom";
-import { TextField } from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
-
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { setHidden } from "../../redux/swapSlice";
 const SignIn = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [checkPassword, setCheckPassword] = useState();
   const [error, setError] = useState();
+  const hidden = useSelector((state) => state.swap.hidden);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -25,7 +29,13 @@ const SignIn = () => {
     setPassword("");
     setCheckPassword("");
   };
-
+  const handleClickShowPassword = () => {
+    if (!hidden) {
+      dispatch(setHidden(true));
+    } else {
+      dispatch(setHidden(false));
+    }
+  };
   return (
     <div className="signin-container">
       <form onSubmit={handleSubmit}>
@@ -53,9 +63,22 @@ const SignIn = () => {
                 label="Şifre"
                 variant="standard"
                 value={password}
-                type="password"
+                type={hidden ? "text" : "password"}
                 onChange={(e) => setPassword(e.target.value)}
                 className="sifreInput"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle Password"
+                        onClick={handleClickShowPassword}
+                        edge="end"
+                      >
+                        {hidden ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
                 id="standard-basic"
@@ -64,9 +87,22 @@ const SignIn = () => {
                 autoComplete="off"
                 required
                 value={checkPassword}
-                type="password"
+                type={hidden ? "text" : "password"}
                 onChange={(e) => setCheckPassword(e.target.value)}
                 className="repeatSifreInput"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle Password"
+                        onClick={handleClickShowPassword}
+                        edge="end"
+                      >
+                        {hidden ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
             </div>
             <div className="signin-input">

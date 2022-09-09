@@ -1,18 +1,20 @@
-import { TextField } from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 import "./Login.Module.css";
 import clothes from "../../assets/clothes.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/swapSlice";
-
+import { login, setHidden } from "../../redux/swapSlice";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.swap.user);
+  const hidden = useSelector((state) => state.swap.hidden);
+  const navigate = useNavigate();
   console.log(user);
 
   const handleSubmit = (e) => {
@@ -26,12 +28,21 @@ const Login = () => {
             displayName: userAuth.user.displayName,
           })
         );
+        navigate("/");
       })
       // display the error if any
       .catch((err) => {
         alert(err);
       });
   };
+  const handleClickShowPassword = () => {
+    if (!hidden) {
+      dispatch(setHidden(true));
+    } else {
+      dispatch(setHidden(false));
+    }
+  };
+
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
@@ -55,8 +66,22 @@ const Login = () => {
                 label="Şifre"
                 variant="standard"
                 className="sifreInput"
+                type={hidden ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle Password"
+                        onClick={handleClickShowPassword}
+                        edge="end"
+                      >
+                        {hidden ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
             </div>
             <div className="login-input">
@@ -66,7 +91,7 @@ const Login = () => {
               </button>
             </div>
             <div className="question">
-              Hesabın yok mu ? <Link to="/signin"> Giriş Yap </Link>
+              Hesabın yok mu ? <Link to="/signin"> Kayıt ol </Link>
             </div>
           </div>
         </div>

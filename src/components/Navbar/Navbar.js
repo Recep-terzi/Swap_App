@@ -192,21 +192,23 @@ const Navbar = () => {
               </li>
             </ul>
           </li>
-          {localStorage.getItem("user") && (
+          {user && (
             <>
-              <li onClick={handleLogout}>
-                <Link to="/">
-                  <i className="fa-solid fa-right-from-bracket"></i>
-                  <span className="link_name">Çıkış Yap</span>
+              <li>
+                <Link to="/products">
+                  <i class="fa-brands fa-product-hunt"></i>
+
+                  <span className="link_name">Ürünlerim</span>
                 </Link>
                 <ul className="sub-menu blank">
                   <li>
                     <Link className="link_name" to="/">
-                      Çıkış Yap
+                      Ürünlerim
                     </Link>
                   </li>
                 </ul>
               </li>
+
               <li>
                 <a>
                   <i
@@ -229,9 +231,22 @@ const Navbar = () => {
                   </li>
                 </ul>
               </li>
+              <li onClick={handleLogout}>
+                <Link to="/">
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                  <span className="link_name">Çıkış Yap</span>
+                </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link className="link_name" to="/">
+                      Çıkış Yap
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </>
           )}
-          {!localStorage.getItem("user") && (
+          {!user && (
             <li>
               <Link to="/login">
                 <i className="fa-solid fa-user"></i>
