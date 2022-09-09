@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin } from "../../redux/swapSlice";
+import { setLogin, setUser } from "../../redux/swapSlice";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -15,6 +15,9 @@ const Login = () => {
   const [error, setError] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.swap.user);
+  console.log(user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,7 +25,8 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         navigate("/");
-        dispatch(setLogin(true));
+        localStorage.setItem("user", JSON.stringify(res));
+        dispatch(setUser(res.user));
       })
       .catch((err) => {
         setError(err.message);

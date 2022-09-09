@@ -5,8 +5,11 @@ import clothes from "../../assets/clothes.png";
 import swap from "../../assets/swap.png";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import Modal from "../Modal/Modal";
+import { useSelector } from "react-redux";
 const Home = () => {
+  const user = useSelector((state) => state.swap.user);
+  console.log(user);
+
   return (
     <>
       <Navbar />

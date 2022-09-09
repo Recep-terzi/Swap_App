@@ -62,7 +62,7 @@ const ItemsDetail = () => {
                     // ))
                   }
                   <img
-                    src={notebook}
+                    src={info.image}
                     alt="notebook"
                     style={{
                       width: "100%",

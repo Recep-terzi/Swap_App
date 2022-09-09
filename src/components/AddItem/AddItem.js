@@ -3,7 +3,7 @@ import "./AddItem.Module.css";
 import { db } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const AddItem = () => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
@@ -13,6 +13,8 @@ const AddItem = () => {
   const [image3, setImage3] = useState();
   const [description, setDescription] = useState();
   const navigate = useNavigate();
+  const auth = useSelector((state) => state.swap.auth);
+  console.log(auth);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

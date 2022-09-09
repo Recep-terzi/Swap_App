@@ -1,16 +1,32 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
+import { setLogout } from "../../redux/swapSlice";
 import Modal from "../Modal/Modal";
 import "./Navbar.Module.css";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
+  const user = useSelector((state) => state.swap.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleClickOpen = () => {
     setOpen(true);
   };
-
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("başarıyla çıkış yapıldı");
+        dispatch(setLogout());
+        localStorage.removeItem("user");
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   useEffect(() => {
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
@@ -176,11 +192,11 @@ const Navbar = () => {
               </li>
             </ul>
           </li>
-          {login && (
+          {localStorage.getItem("user") && (
             <>
-              <li onClick={() => signOut(auth)}>
-                <Link to="/login">
-                  <i class="fa-solid fa-right-from-bracket"></i>
+              <li onClick={handleLogout}>
+                <Link to="/">
+                  <i className="fa-solid fa-right-from-bracket"></i>
                   <span className="link_name">Çıkış Yap</span>
                 </Link>
                 <ul className="sub-menu blank">
@@ -194,7 +210,7 @@ const Navbar = () => {
               <li>
                 <a>
                   <i
-                    class="fa-solid fa-square-plus"
+                    className="fa-solid fa-square-plus"
                     onClick={handleClickOpen}
                   ></i>
                   <span className="link_name">Ürün Ekle</span>
@@ -215,10 +231,10 @@ const Navbar = () => {
               </li>
             </>
           )}
-          {!login && (
+          {!localStorage.getItem("user") && (
             <li>
               <Link to="/login">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
                 <span className="link_name">Login</span>
               </Link>
               <ul className="sub-menu blank">

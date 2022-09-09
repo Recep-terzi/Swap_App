@@ -1,16 +1,13 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import "./Items.Module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import ReactStarsRating from "react-awesome-stars-rating";
 import { useDispatch, useSelector } from "react-redux";
-import { getItems, setPage } from "../../redux/swapSlice";
+import { getItems } from "../../redux/swapSlice";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-
 const Items = () => {
   const items = useSelector((state) => state.swap.items);
   const dispatch = useDispatch();
@@ -30,14 +27,13 @@ const Items = () => {
       dispatch(getItems(result));
     });
   }, [dispatch]);
-  console.log(items);
   return (
     <>
       <div className="items-div">
         {items && (
           <>
             {items.map((item) => (
-              <>
+              <div key={item.id}>
                 <Link to={`/detail/${item.id}`} className="card-link">
                   <div className="card">
                     <div className="card-header">
@@ -46,16 +42,12 @@ const Items = () => {
                     <div className="card-body">
                       <div className="card-titles">{item.title}</div>
                       <div className="card-description">{item.description}</div>
-                      <ReactStarsRating
-                        value={item.star}
-                        isEdit={false}
-                        size={15}
-                      />
+
                       <div className="card-price">{item.price} TL</div>
                     </div>
                   </div>
                 </Link>
-              </>
+              </div>
             ))}
           </>
         )}

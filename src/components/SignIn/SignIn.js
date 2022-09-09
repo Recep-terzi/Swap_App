@@ -20,7 +20,7 @@ const SignIn = () => {
         console.log(res);
         navigate("/login");
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.message, error));
     setEmail("");
     setPassword("");
     setCheckPassword("");
