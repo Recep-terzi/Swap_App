@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Items from "../Items/Items";
 import "./Home.Module.css";
 import clothes from "../../assets/clothes.png";
 import swap from "../../assets/swap.png";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import { setLogout, setUser } from "../../redux/swapSlice";
 const Home = () => {
-  const user = useSelector((state) => state.swap.user);
-  console.log(user);
-
+  // const user = useSelector((state) => state.swap.user);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (userAuth) => {
+  //     if (userAuth) {
+  //       dispatch(
+  //         setUser({
+  //           email: userAuth.email,
+  //           uid: userAuth.uid,
+  //           displayName: userAuth.displayName,
+  //         })
+  //       );
+  //     } else {
+  //       dispatch(setLogout());
+  //     }
+  //   });
+  // });
   return (
     <>
       <Navbar />
       <div className="slider">
-        <p>Welcome to Swap App!</p>
+        <p>Welcome to Swap App! </p>
       </div>
       <div className="home-container">
         <div className="row home-row">

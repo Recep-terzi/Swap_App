@@ -5,31 +5,31 @@ import clothes from "../../assets/clothes.png";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setUser } from "../../redux/swapSlice";
+import { login } from "../../redux/swapSlice";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [error, setError] = useState();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const user = useSelector((state) => state.swap.user);
   console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        console.log(res);
-        navigate("/");
-        localStorage.setItem("user", JSON.stringify(res));
-        dispatch(setUser(res.user));
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+          })
+        );
       })
+      // display the error if any
       .catch((err) => {
-        setError(err.message);
+        alert(err);
       });
   };
   return (

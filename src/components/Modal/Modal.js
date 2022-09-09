@@ -12,6 +12,7 @@ import { styled } from "@mui/material/styles";
 import { db } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Modal = ({ handleClickOpen, open, setOpen }) => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
@@ -19,6 +20,8 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
   const [image, setImage] = useState();
   const [image2, setImage2] = useState();
   const [image3, setImage3] = useState();
+  const user = useSelector((state) => state.swap.user);
+  console.log(user);
   const [description, setDescription] = useState();
 
   const theme = useTheme();
@@ -53,6 +56,7 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
     try {
       await addDoc(ref, {
         ...doc,
+        email: user.email,
       });
       navigate("/");
       console.log("eklendi");
