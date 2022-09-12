@@ -13,6 +13,7 @@ import { db } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import Select from "@mui/material/Select";
+import "./Modal.Module.css";
 const Modal = ({ open, setOpen }) => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
@@ -82,7 +83,6 @@ const Modal = ({ open, setOpen }) => {
               bilgileri detaylı ve doğru bir şekilde giriniz.
             </DialogContentText>
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürün Adı"
@@ -93,7 +93,6 @@ const Modal = ({ open, setOpen }) => {
               variant="standard"
             />
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürün Fiyatı"
@@ -104,7 +103,6 @@ const Modal = ({ open, setOpen }) => {
               variant="standard"
             />
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürün Puanı ( 0 - 5 )"
@@ -135,7 +133,6 @@ const Modal = ({ open, setOpen }) => {
               </FormControl>
             </Box>
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürünün resmi (1)"
@@ -146,7 +143,6 @@ const Modal = ({ open, setOpen }) => {
               variant="standard"
             />
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürünün resmi (2)"
@@ -157,7 +153,6 @@ const Modal = ({ open, setOpen }) => {
               variant="standard"
             />
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Ürünün resmi (3)"
@@ -169,7 +164,6 @@ const Modal = ({ open, setOpen }) => {
             />
 
             <TextField
-              autoFocus
               margin="dense"
               id="outlined-multiline-static"
               label="Ürünün Açıklaması"
@@ -180,9 +174,14 @@ const Modal = ({ open, setOpen }) => {
               variant="standard"
               rows={4}
             />
-            <FixedButton fullWidth className="modal-btn" type="submit">
-              Ürünü Ekle
-            </FixedButton>
+            <div className="form-btn-group">
+              <FixedButton className="modal-btn" type="submit">
+                Ürünü Ekle
+              </FixedButton>
+              <FixedButton className="modal-btn" onClick={() => handleClose()}>
+                İptal Et
+              </FixedButton>
+            </div>
           </DialogContent>
         </form>
       </Dialog>
