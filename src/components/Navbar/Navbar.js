@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
-import { setLogout } from "../../redux/swapSlice";
+import { logout } from "../../redux/swapSlice";
 import Modal from "../Modal/Modal";
 import "./Navbar.Module.css";
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     signOut(auth)
       .then(() => {
         console.log("başarıyla çıkış yapıldı");
-        dispatch(setLogout());
+        dispatch(logout());
         localStorage.removeItem("user");
         navigate("/");
         console.log(user);

@@ -7,6 +7,7 @@ export const swapSlice = createSlice({
     productItems: [],
     user: null,
     hidden: false,
+    detail: [],
   },
   reducers: {
     getItems: (state, action) => {
@@ -24,17 +25,17 @@ export const swapSlice = createSlice({
     setHidden: (state, action) => {
       state.hidden = action.payload;
     },
+    getDetail: (state, action) => {
+      state.detail = action.payload;
+    },
   },
 });
 
 export const {
   getItems,
-  getDetail,
-  setLogin,
-  setUser,
-  setLogout,
   login,
   getProductItems,
+  getDetail,
   setHidden,
   logout,
 } = swapSlice.actions;

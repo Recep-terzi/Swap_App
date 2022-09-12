@@ -4,15 +4,16 @@ import ItemsDetail from "./components/ItemsDetail/ItemsDetail";
 import Login from "./components/Login/Login";
 import Modal from "./components/Modal/Modal";
 import SignIn from "./components/SignIn/SignIn";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "./redux/swapSlice";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { login, logout } from "./redux/swapSlice";
 import { auth } from "./firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import MyProducts from "./components/MyProducts/MyProducts";
+import Loading from "./components/Loading/Loading";
 function App() {
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
@@ -29,16 +30,26 @@ function App() {
       }
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/detail/:id" element={<ItemsDetail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/modal" element={<Modal />} />
-        <Route path="/products" element={<MyProducts />} />
-      </Routes>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail/:id" element={<ItemsDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/modal" element={<Modal />} />
+          <Route path="/products" element={<MyProducts />} />
+        </Routes>
+      )}
     </>
   );
 }

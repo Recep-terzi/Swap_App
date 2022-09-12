@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { TextareaAutosize, TextField } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import { db } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-const Modal = ({ handleClickOpen, open, setOpen }) => {
+import Select from "@mui/material/Select";
+const Modal = ({ open, setOpen }) => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
   const [star, setStar] = useState();
   const [image, setImage] = useState();
   const [image2, setImage2] = useState();
   const [image3, setImage3] = useState();
+  const [category, setCategory] = useState();
   const user = useSelector((state) => state.swap.user);
-  console.log(user);
   const [description, setDescription] = useState();
 
   const theme = useTheme();
@@ -39,7 +39,6 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
     },
   });
 
-  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,6 +49,7 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
       image2: image2,
       image3: image3,
       star: star,
+      category: category,
       description: description,
     };
     const ref = collection(db, "items");
@@ -58,12 +58,14 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
         ...doc,
         email: user.email,
       });
-      navigate("/");
+      handleClose();
       console.log("eklendi");
     } catch (error) {
       console.log(error);
     }
   };
+
+  const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
   return (
     <>
       <Dialog
@@ -112,6 +114,26 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
               fullWidth
               variant="standard"
             />
+            <Box>
+              <FormControl fullWidth sx={{ mt: 3 }}>
+                <InputLabel id="demo-simple-select-label">
+                  Kategori Seçiniz
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  label="Kategori Seçiniz"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  {categories.map((category, index) => (
+                    <MenuItem value={category} key={index}>
+                      {category}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
             <TextField
               autoFocus
               margin="dense"
@@ -145,6 +167,7 @@ const Modal = ({ handleClickOpen, open, setOpen }) => {
               fullWidth
               variant="standard"
             />
+
             <TextField
               autoFocus
               margin="dense"
