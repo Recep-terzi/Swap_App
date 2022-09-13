@@ -11,6 +11,9 @@ import { auth } from "./firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import MyProducts from "./components/MyProducts/MyProducts";
 import Loading from "./components/Loading/Loading";
+import Clothes from "./components/Clothes/Clothes";
+import Technology from "./components/Technology/Technology";
+import Other from "./components/Other/Other";
 function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -48,6 +51,9 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/modal" element={<Modal />} />
           <Route path="/products" element={<MyProducts />} />
+          <Route path="/clothes" element={<Clothes />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/other" element={<Other />} />
         </Routes>
       )}
     </>

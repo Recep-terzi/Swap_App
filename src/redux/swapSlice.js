@@ -8,6 +8,9 @@ export const swapSlice = createSlice({
     user: null,
     hidden: false,
     detail: [],
+    technologyItems: [],
+    clothesItems: [],
+    otherItems: [],
   },
   reducers: {
     getItems: (state, action) => {
@@ -28,6 +31,15 @@ export const swapSlice = createSlice({
     getDetail: (state, action) => {
       state.detail = action.payload;
     },
+    getTechonologyItems: (state, action) => {
+      state.technologyItems = action.payload;
+    },
+    getClothesItems: (state, action) => {
+      state.clothesItems = action.payload;
+    },
+    getOtherItems: (state, action) => {
+      state.otherItems = action.payload;
+    },
   },
 });
 
@@ -36,8 +48,11 @@ export const {
   login,
   getProductItems,
   getDetail,
+  getTechonologyItems,
   setHidden,
+  getClothesItems,
   logout,
+  getOtherItems,
 } = swapSlice.actions;
 export const selectUser = (state) => state.swap.user;
 export default swapSlice.reducer;

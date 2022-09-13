@@ -80,13 +80,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/">HTML & CSS</Link>
+                <Link to="/clothes"> Kıyafetler </Link>
               </li>
               <li>
-                <Link to="/">JavaScript</Link>
+                <Link to="/technology"> Teknolojik Ürünler </Link>
               </li>
               <li>
-                <Link to="/">PHP & MySQL</Link>
+                <Link to="/other"> Diğer ürünler </Link>
               </li>
             </ul>
           </li>
