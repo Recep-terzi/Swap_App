@@ -62,7 +62,9 @@ const Home = () => {
                   tempore molestiae nesciunt pariatur! Ad, debitis.
                 </div>
                 <div className="home-btn">
-                  <button>Daha Fazla</button>
+                  <a href="/clothes">
+                    <button>Daha Fazla</button>
+                  </a>
                 </div>
               </div>
               <div className="col-md-5">
@@ -88,7 +90,9 @@ const Home = () => {
                   tempore molestiae nesciunt pariatur! Ad, debitis.
                 </div>
                 <div className="home-btn">
-                  <button>Daha Fazla</button>
+                  <a href="/technology">
+                    <button>Daha Fazla</button>
+                  </a>
                 </div>
               </div>
             </div>

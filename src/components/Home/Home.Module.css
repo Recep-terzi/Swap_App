@@ -101,6 +101,13 @@
   color: #fff;
   margin-left: 10px;
 }
+.home-btn button a {
+  text-decoration: none;
+}
+.home-btn button:hover {
+  background-color: #393e46;
+  transition: 0.3s;
+}
 .col-md-5 {
   padding-left: 70px;
 }

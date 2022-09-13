@@ -60,14 +60,14 @@ const Other = () => {
                   </Link>
                 </div>
               ))}
-              {items.length === 0 && (
-                <div className="err">
-                  <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
-                </div>
-              )}
             </>
           )}
         </div>
+        {items.length === 0 && (
+          <div className="err">
+            <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
+          </div>
+        )}
       </div>
       <Footer />
     </>
