@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { getOtherItems } from "../../redux/swapSlice";
+import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 const Other = () => {
   const dispatch = useDispatch();
@@ -60,12 +61,15 @@ const Other = () => {
                 </div>
               ))}
               {items.length === 0 && (
-                <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
+                <div className="err">
+                  <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
+                </div>
               )}
             </>
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

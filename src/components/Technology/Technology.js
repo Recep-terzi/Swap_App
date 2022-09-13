@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import "./Technology.Module.css";
 import { db } from "../../firebase/config";
+import Footer from "../../components/Footer/Footer";
 import { getTechonologyItems } from "../../redux/swapSlice";
 import { Link } from "react-router-dom";
 const Technology = () => {
@@ -61,10 +62,13 @@ const Technology = () => {
             </>
           )}
           {items.length === 0 && (
-            <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
+            <div className="err">
+              <h1>Bu kategoride bir ürün bulunmamaktadır.</h1>
+            </div>
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

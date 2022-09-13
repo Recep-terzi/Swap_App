@@ -13,6 +13,7 @@ import {
 import { db } from "../../firebase/config";
 import { getClothesItems } from "../../redux/swapSlice";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 const Clothes = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.swap.clothesItems);
@@ -66,6 +67,7 @@ const Clothes = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
