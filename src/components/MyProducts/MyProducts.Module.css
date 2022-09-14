@@ -3,3 +3,29 @@
   padding-right: 220px;
   margin-bottom: 100px;
 }
+.card-button-group {
+  display: flex;
+  height: 100%;
+}
+.card-button-group .update-item {
+  border: none;
+  width: 100%;
+  border-right: 1px solid #fff;
+}
+.card-button-group .update-item,
+.card-button-group .delete-item {
+  background-color: #222831;
+  color: #fff;
+}
+.card-button-group .update-item:hover,
+.card-button-group .delete-item:hover {
+  background-color: #393e46;
+}
+.card-button-group .delete-item {
+  width: 100%;
+  border: none;
+}
+.not-items {
+  font-size: 50px;
+  margin-bottom: 312px;
+}

@@ -198,6 +198,7 @@ const Modal = ({ open, setOpen }) => {
               onChange={(e) => setDescription(e.target.value)}
               type="text"
               fullWidth
+              inputProps={{ maxLength: "28" }}
               variant="standard"
               rows={4}
             />

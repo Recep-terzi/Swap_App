@@ -5,8 +5,8 @@ import "./MyProducts.Module.css";
 import {
   collection,
   onSnapshot,
-  orderBy,
-  getDocs,
+  deleteDoc,
+  doc,
   query,
   where,
 } from "firebase/firestore";
@@ -34,6 +34,9 @@ const MyProducts = () => {
     });
     return unsub;
   }, [dispatch, user]);
+  const handleDelete = (id) => {
+    deleteDoc(doc(db, "items", id));
+  };
   return (
     <>
       <Navbar />
@@ -43,8 +46,8 @@ const MyProducts = () => {
             <>
               {items.map((item) => (
                 <div key={item.id}>
-                  <Link to={`/detail/${item.id}`} className="card-link">
-                    <div className="card">
+                  <div className="card">
+                    <Link to={`/detail/${item.id}`} className="card-link">
                       <div className="card-header">
                         <img src={item.image} alt="" className="card-img" />
                       </div>
@@ -56,14 +59,29 @@ const MyProducts = () => {
 
                         <div className="card-price">{item.price} TL</div>
                       </div>
+                    </Link>
+                    <div className="card-button-group">
+                      <button className="update-item">Güncelle</button>
+                      <button
+                        className="delete-item"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Sil
+                      </button>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </>
           )}
         </div>
+        {items.length === 0 && (
+          <div className="err">
+            <h1>Ürününüz bulunmamaktadır...</h1>
+          </div>
+        )}
       </div>
+
       <Footer />
     </>
   );
