@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./ItemsDetail.Module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/swapSlice";
-import { Carousel } from "react-responsive-carousel";
-import ReactStarsRating from "react-awesome-stars-rating";
-import notebook from "../../assets/notebook.jpg";
 import Navbar from "../Navbar/Navbar";
 import Loading from "../Loading/Loading";
+import Footer from "../Footer/Footer";
 const ItemsDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -45,31 +43,6 @@ const ItemsDetail = () => {
                 {detail.map((info) => (
                   <div className="row">
                     <div className="col-md-6">
-                      {/* {info.image.map((img, index) => (
-              <div key={index} className="carousel-img">
-                <img src={img} alt="img" />
-              </div>
-            ))}{" "} */}
-                      {/* <ImageGallery items={info.image} /> */}
-                      {
-                        /* <CarouselProvider
-              naturalSlideWidth={100}
-              naturalSlideHeight={125}
-              totalSlides={3}
-            >
-              <Slider>
-                {info.image.map((img, index) => (
-                  <Slide index={index}>
-                    <img src={img} alt="img"></img>
-                  </Slide>
-                ))}
-              </Slider>
-              <ButtonBack>Back</ButtonBack>
-              <ButtonNext>Next</ButtonNext>
-            </CarouselProvider> */
-                        // info.image.map((img, index) => (
-                        // ))
-                      }
                       <img
                         src={info.image}
                         alt="notebook"
@@ -84,22 +57,26 @@ const ItemsDetail = () => {
                     <div className="col-md-6">
                       <div className="info-div">
                         <div className="info-title">{info.title}</div>
-                        <div className="info-description">
-                          {info.description}
-                        </div>
-                        <div className="info-star">
-                          <ReactStarsRating
-                            value={info.star}
-                            isEdit={false}
-                            size={15}
-                          />{" "}
-                          <span>{info.star}</span>
-                        </div>
-                        <div className="info-seller">
-                          <p> Ürün satıcısı : {info.seller}</p>
-                        </div>
-                        <div className="info-price">
-                          {info.price} <span>TL</span>
+                        <div className="items-info-div">
+                          <div className="description-seller">
+                            <div className="info-description">
+                              {info.description}
+                            </div>
+
+                            <div className="info-seller">
+                              <p>
+                                Ürün satıcısı :{" "}
+                                <span>
+                                  <Link to="/">{info.seller}</Link>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                          <div className="price-div">
+                            <div className="info-price">
+                              {info.price} <span>TL</span>
+                            </div>
+                          </div>
                         </div>
                         <div className="info-text">
                           Lorem ipsum dolor sit amet consectetur adipisicing
@@ -124,6 +101,7 @@ const ItemsDetail = () => {
           </div>
         </>
       )}
+      <Footer />
     </>
   );
 };

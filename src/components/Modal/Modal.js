@@ -19,14 +19,12 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 const Modal = ({ open, setOpen }) => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
-  const [star, setStar] = useState();
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
   const [category, setCategory] = useState();
   const user = useSelector((state) => state.swap.user);
   const [description, setDescription] = useState();
-  console.log(image);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const handleClose = () => {
@@ -51,7 +49,6 @@ const Modal = ({ open, setOpen }) => {
       image: image,
       image2: image2,
       image3: image3,
-      star: star,
       category: category,
       description: description,
       seller: user.displayName,
@@ -68,8 +65,6 @@ const Modal = ({ open, setOpen }) => {
       console.log(error);
     }
   };
-
-  const photoChange = (e) => {};
 
   const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
 
@@ -110,16 +105,7 @@ const Modal = ({ open, setOpen }) => {
               fullWidth
               variant="standard"
             />
-            <TextField
-              margin="dense"
-              id="name"
-              label="Ürün Puanı ( 0 - 5 )"
-              value={star}
-              onChange={(e) => setStar(e.target.value)}
-              type="text"
-              fullWidth
-              variant="standard"
-            />
+
             <Box>
               <FormControl fullWidth sx={{ mt: 3 }}>
                 <InputLabel id="demo-simple-select-label">

@@ -7,17 +7,36 @@
   align-items: center;
 }
 .info-title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
+  margin-bottom: 30px;
+}
+.items-info-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-description {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 20px;
 }
 .info-star {
   margin-bottom: 30px;
 }
-
+.info-seller {
+  font-size: 15px;
+}
+.info-seller span {
+  font-weight: bold;
+}
+.info-seller span a {
+  color: #000;
+}
 .info-price {
-  color: red;
-  font-size: 20px;
-  text-decoration: underline;
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
 }
 .info-price span {
   color: black;
