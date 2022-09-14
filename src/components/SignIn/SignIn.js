@@ -3,7 +3,7 @@ import "./SignIn.Module.css";
 import swap from "../../assets/swap.png";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,9 +13,11 @@ const SignIn = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [checkPassword, setCheckPassword] = useState();
+  const [displayName, setDisplayName] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
   const hidden = useSelector((state) => state.swap.hidden);
+  const user = useSelector((state) => state.swap.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
@@ -23,11 +25,15 @@ const SignIn = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
+        updateProfile(res.user, {
+          displayName: displayName,
+        });
         console.log(res);
-        navigate("/login");
+        navigate("/");
       })
       .catch((err) => setError(err.message, error));
     setEmail("");
+    setDisplayName("");
     setPassword("");
     setCheckPassword("");
   };
@@ -56,6 +62,16 @@ const SignIn = () => {
               <div className="col-md-6">
                 <div className="signin-title">Kayıt Ol</div>
                 <div className="signin-input">
+                  <TextField
+                    id="standard-basic"
+                    label="Kullanıcı Adı"
+                    required
+                    variant="standard"
+                    autoComplete="off"
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    className="emailInput"
+                  />
                   <TextField
                     id="standard-basic"
                     label="Email Adresi"

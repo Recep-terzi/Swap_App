@@ -12,7 +12,8 @@ import { setLogout, setUser } from "../../redux/swapSlice";
 import Loading from "../Loading/Loading";
 const Home = () => {
   const [loading, setLoading] = useState(true);
-
+  const user = useSelector((state) => state.swap.user);
+  console.log(user);
   // const user = useSelector((state) => state.swap.user);
   // const dispatch = useDispatch();
   // useEffect(() => {

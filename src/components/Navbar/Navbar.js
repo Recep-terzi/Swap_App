@@ -278,7 +278,7 @@ const Navbar = () => {
       <section className="home-section">
         <div className="home-content">
           <i className="bx bx-menu"></i>
-          <span className="text">Welcome to Swap App!</span>
+          <span className="text">Welcome to {user.displayName}!</span>
         </div>
       </section>
     </>
