@@ -8,6 +8,8 @@ import { getDetail } from "../../redux/swapSlice";
 import Navbar from "../Navbar/Navbar";
 import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 const ItemsDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -43,7 +45,7 @@ const ItemsDetail = () => {
                 {detail.map((info) => (
                   <div className="row">
                     <div className="col-md-6">
-                      <img
+                      {/* <img
                         src={info.image}
                         alt="notebook"
                         style={{
@@ -52,7 +54,22 @@ const ItemsDetail = () => {
                           borderRadius: "50px",
                           padding: "40px",
                         }}
-                      ></img>
+                      ></img> */}
+
+                      <Carousel className="main-slide">
+                        <div>
+                          <img src={info.image} alt="image1" />
+                          <p className="legend">Legend 1</p>
+                        </div>
+                        <div>
+                          <img src={info.image2} alt="image2" />
+                          <p className="legend">Legend 2</p>
+                        </div>
+                        <div>
+                          <img src={info.image3} alt="image3" />
+                          <p className="legend">Legend 3</p>
+                        </div>
+                      </Carousel>
                     </div>
                     <div className="col-md-6">
                       <div className="info-div">
