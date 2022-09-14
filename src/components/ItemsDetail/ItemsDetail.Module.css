@@ -11,6 +11,7 @@
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 30px;
+  text-align: center;
 }
 .items-info-div {
   display: flex;
