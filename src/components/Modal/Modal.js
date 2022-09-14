@@ -52,6 +52,7 @@ const Modal = ({ open, setOpen }) => {
       star: star,
       category: category,
       description: description,
+      seller: user.displayName,
     };
     const ref = collection(db, "items");
     try {

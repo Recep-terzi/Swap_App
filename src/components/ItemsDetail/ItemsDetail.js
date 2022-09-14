@@ -95,6 +95,9 @@ const ItemsDetail = () => {
                           />{" "}
                           <span>{info.star}</span>
                         </div>
+                        <div className="info-seller">
+                          <p> Ürün satıcısı : {info.seller}</p>
+                        </div>
                         <div className="info-price">
                           {info.price} <span>TL</span>
                         </div>
