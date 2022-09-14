@@ -247,19 +247,34 @@ const Navbar = () => {
             </>
           )}
           {!user && (
-            <li>
-              <Link to="/login">
-                <i className="fa-solid fa-user"></i>
-                <span className="link_name">Login</span>
-              </Link>
-              <ul className="sub-menu blank">
-                <li>
-                  <Link className="link_name" to="/">
-                    Login
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            <>
+              <li>
+                <Link to="/login">
+                  <i className="fa-solid fa-user"></i>
+                  <span className="link_name">Giriş Yap</span>
+                </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link className="link_name" to="/login">
+                      Giriş Yap
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/signin">
+                  <i class="fa-solid fa-user-plus"></i>
+                  <span className="link_name">Kayıt Ol</span>
+                </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link className="link_name" to="/signin">
+                      Kayıt Ol
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            </>
           )}
           <li>
             <div className="profile-details">
@@ -278,7 +293,8 @@ const Navbar = () => {
       <section className="home-section">
         <div className="home-content">
           <i className="bx bx-menu"></i>
-          <span className="text">Welcome to {user.displayName}!</span>
+          {user && <span className="text">Welcome to {user.displayName}!</span>}
+          {!user && <span className="text">Welcome to SWAP APP!</span>}
         </div>
       </section>
     </>

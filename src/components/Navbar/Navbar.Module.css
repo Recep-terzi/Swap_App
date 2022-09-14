@@ -290,3 +290,6 @@
     width: 78px;
   }
 }
+.fa-user-plus:before {
+  margin-left: 8px;
+}
