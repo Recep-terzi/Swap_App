@@ -9,22 +9,24 @@ import { useTheme } from "@mui/material/styles";
 import { FormControl, InputLabel, MenuItem, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import { db } from "../../firebase/config";
+import { db, storage } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import Select from "@mui/material/Select";
 import "./Modal.Module.css";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+
 const Modal = ({ open, setOpen }) => {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
   const [star, setStar] = useState();
-  const [image, setImage] = useState();
-  const [image2, setImage2] = useState();
-  const [image3, setImage3] = useState();
+  const [image, setImage] = useState(null);
+  const [image2, setImage2] = useState(null);
+  const [image3, setImage3] = useState(null);
   const [category, setCategory] = useState();
   const user = useSelector((state) => state.swap.user);
   const [description, setDescription] = useState();
-
+  console.log(image);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const handleClose = () => {
@@ -67,7 +69,10 @@ const Modal = ({ open, setOpen }) => {
     }
   };
 
+  const photoChange = (e) => {};
+
   const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
+
   return (
     <>
       <Dialog
@@ -77,7 +82,9 @@ const Modal = ({ open, setOpen }) => {
         aria-labelledby="responsive-dialog-title"
       >
         <form onSubmit={handleSubmit}>
-          <DialogTitle id="responsive-dialog-title">{"Add Item"}</DialogTitle>
+          <DialogTitle id="responsive-dialog-title">
+            {"Yeni bir ürün ekle"}
+          </DialogTitle>
           <DialogContent>
             <DialogContentText>
               Buradan ürünlerinizi ekleyebilirsiniz. Lütfen ürün hakkındaki
@@ -133,36 +140,69 @@ const Modal = ({ open, setOpen }) => {
                 </Select>
               </FormControl>
             </Box>
-            <TextField
-              margin="dense"
-              id="name"
-              label="Ürünün resmi (1)"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              margin="dense"
-              id="name"
-              label="Ürünün resmi (2)"
-              value={image2}
-              onChange={(e) => setImage2(e.target.value)}
-              type="text"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              margin="dense"
-              id="name"
-              label="Ürünün resmi (3)"
-              value={image3}
-              onChange={(e) => setImage3(e.target.value)}
-              type="text"
-              fullWidth
-              variant="standard"
-            />
+            <div className="file-div">
+              <p>Resim 1</p>
+              <input
+                margin="dense"
+                id="name"
+                value={""}
+                className="file-input"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.currentTarget.files[0];
+                  const imageRef = ref(storage, `photos/${file.name}`);
+                  uploadBytes(imageRef, file);
+                  getDownloadURL(imageRef).then((url) => {
+                    setImage(url);
+                  });
+                }}
+                fullWidth
+                type="file"
+                variant="standard"
+              />
+            </div>
+            <div className="file-div">
+              <p>Resim 2</p>{" "}
+              <input
+                margin="dense"
+                id="name"
+                className="file-input"
+                value={""}
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.currentTarget.files[0];
+                  const imageRef = ref(storage, `photos/${file.name}`);
+                  uploadBytes(imageRef, file);
+                  getDownloadURL(imageRef).then((url) => {
+                    setImage2(url);
+                  });
+                }}
+                fullWidth
+                type="file"
+                variant="standard"
+              />
+            </div>
+
+            <div className="file-div">
+              <p>Resim 3</p>
+              <input
+                margin="dense"
+                className="file-input"
+                id="name"
+                value={""}
+                onChange={(e) => {
+                  const file = e.currentTarget.files[0];
+                  const imageRef = ref(storage, `photos/${file.name}`);
+                  uploadBytes(imageRef, file);
+                  getDownloadURL(imageRef).then((url) => {
+                    setImage3(url);
+                  });
+                }}
+                type="file"
+                fullWidth
+                variant="standard"
+              />
+            </div>
 
             <TextField
               margin="dense"
