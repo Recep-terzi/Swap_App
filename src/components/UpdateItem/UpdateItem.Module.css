@@ -15,11 +15,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 500px;
+  height: 600px;
   width: 800px;
   background-color: #e3e3e3;
   margin-top: 40px;
   padding: 40px;
+  border-radius: 10px;
 }
 .title-input {
   display: flex;
@@ -36,6 +37,7 @@
 .price-input {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 .price-input input {
   width: 75%;
@@ -43,4 +45,55 @@
 }
 .price-input label {
   font-size: 20px;
+}
+.category-selection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.category-selection label {
+  font-size: 20px;
+}
+.category-selection select {
+  width: 75%;
+  height: 30px;
+}
+.description-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.description-input label {
+  font-size: 20px;
+}
+.description-input textarea {
+  width: 75%;
+  height: 70px;
+}
+.update-item-img {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+.update-item-img img {
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}
+.update-item-button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.update-item-button button {
+  width: 60%;
+  height: 30px;
+  border: none;
+  background-color: #222831;
+  color: #fff;
+  border-radius: 10px;
+}
+.update-item-button button:hover {
+  background-color: #393e46;
+  transition: 0.3s;
 }
