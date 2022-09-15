@@ -1,0 +1,46 @@
+.updateitem-container {
+  padding-left: 220px;
+  padding-right: 220px;
+  margin-bottom: 100px;
+}
+.update-item-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+}
+.form-card {
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 500px;
+  width: 800px;
+  background-color: #e3e3e3;
+  margin-top: 40px;
+  padding: 40px;
+}
+.title-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.title-input input {
+  width: 75%;
+  height: 30px;
+}
+.title-input label {
+  font-size: 20px;
+}
+.price-input {
+  display: flex;
+  justify-content: space-between;
+}
+.price-input input {
+  width: 75%;
+  height: 30px;
+}
+.price-input label {
+  font-size: 20px;
+}

@@ -29,3 +29,11 @@
   font-size: 50px;
   margin-bottom: 312px;
 }
+.update-link {
+  color: #fff;
+  text-decoration: none;
+}
+.update-link:hover {
+  color: #fff;
+  text-decoration: none;
+}

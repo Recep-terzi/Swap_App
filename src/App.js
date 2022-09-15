@@ -14,6 +14,7 @@ import Loading from "./components/Loading/Loading";
 import Clothes from "./components/Clothes/Clothes";
 import Technology from "./components/Technology/Technology";
 import Other from "./components/Other/Other";
+import UpdateItem from "./components/UpdateItem/UpdateItem";
 function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -54,6 +55,7 @@ function App() {
           <Route path="/clothes" element={<Clothes />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/other" element={<Other />} />
+          <Route path="/updateItem/:id" element={<UpdateItem />} />
         </Routes>
       )}
     </>

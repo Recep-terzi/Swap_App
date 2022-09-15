@@ -61,7 +61,14 @@ const MyProducts = () => {
                       </div>
                     </Link>
                     <div className="card-button-group">
-                      <button className="update-item">Güncelle</button>
+                      <button className="update-item">
+                        <Link
+                          to={`/updateItem/${item.id}`}
+                          className="update-link"
+                        >
+                          Güncelle
+                        </Link>
+                      </button>
                       <button
                         className="delete-item"
                         onClick={() => handleDelete(item.id)}
