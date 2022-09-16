@@ -5,7 +5,7 @@ import Login from "./components/Login/Login";
 import Modal from "./components/Modal/Modal";
 import SignIn from "./components/SignIn/SignIn";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./redux/swapSlice";
 import { auth } from "./firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
@@ -15,8 +15,10 @@ import Clothes from "./components/Clothes/Clothes";
 import Technology from "./components/Technology/Technology";
 import Other from "./components/Other/Other";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
+import NotFound from "./components/NotFound/NotFound";
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.swap.user);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
@@ -51,11 +53,19 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/modal" element={<Modal />} />
-          <Route path="/products" element={<MyProducts />} />
           <Route path="/clothes" element={<Clothes />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/other" element={<Other />} />
-          <Route path="/updateItem/:id" element={<UpdateItem />} />
+          <Route path="/*" element={<NotFound />} />
+
+          {!user ? (
+            <Route path="/*" element={<NotFound />} />
+          ) : (
+            <>
+              <Route path="/products" element={<MyProducts />} />
+              <Route path="/updateItem/:id" element={<UpdateItem />} />
+            </>
+          )}
         </Routes>
       )}
     </>

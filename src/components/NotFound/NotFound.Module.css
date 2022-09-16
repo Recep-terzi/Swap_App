@@ -1,0 +1,15 @@
+.notfound-container {
+  padding-left: 220px;
+  padding-right: 220px;
+  margin-bottom: 100px;
+  margin-top: 200px;
+}
+.notfound-container p {
+  text-align: center;
+  font-size: 60px;
+}
+.notfound-container p:last-child {
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.7;
+}
