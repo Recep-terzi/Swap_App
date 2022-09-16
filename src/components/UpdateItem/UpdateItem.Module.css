@@ -17,8 +17,10 @@
   left: 0;
   height: 600px;
   width: 800px;
-  background-color: #e3e3e3;
+  background-color: #222831;
+  color: #fff;
   margin-top: 40px;
+  margin-bottom: 100px;
   padding: 40px;
   border-radius: 10px;
 }
@@ -27,9 +29,18 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.title-input input {
+.title-input input,
+.price-input input,
+.category-selection select,
+.description-input textarea {
   width: 75%;
+  border-radius: 7px;
+  border: none;
   height: 30px;
+  padding-left: 5px;
+}
+.description-input textarea {
+  height: 70px;
 }
 .title-input label {
   font-size: 20px;
@@ -39,10 +50,7 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.price-input input {
-  width: 75%;
-  height: 30px;
-}
+
 .price-input label {
   font-size: 20px;
 }
@@ -54,10 +62,7 @@
 .category-selection label {
   font-size: 20px;
 }
-.category-selection select {
-  width: 75%;
-  height: 30px;
-}
+
 .description-input {
   display: flex;
   justify-content: space-between;
@@ -66,10 +71,7 @@
 .description-input label {
   font-size: 20px;
 }
-.description-input textarea {
-  width: 75%;
-  height: 70px;
-}
+
 .update-item-img {
   display: flex;
   justify-content: space-evenly;
@@ -89,11 +91,12 @@
   width: 60%;
   height: 30px;
   border: none;
-  background-color: #222831;
+  background-color: #393e46;
   color: #fff;
   border-radius: 10px;
 }
 .update-item-button button:hover {
-  background-color: #393e46;
+  background-color: #222831;
+  border: 1px solid #fff;
   transition: 0.3s;
 }

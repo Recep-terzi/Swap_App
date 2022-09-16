@@ -42,8 +42,6 @@ const Navbar = () => {
     });
   });
 
-  const login = useSelector((state) => state.swap.login);
-  console.log(login);
   return (
     <>
       <div className="sidebar closes">
