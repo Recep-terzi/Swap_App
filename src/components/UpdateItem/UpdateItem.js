@@ -33,8 +33,12 @@ const UpdateItem = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
+      setNewName(detail[0].title);
+      setNewPrice(detail[0].price);
+      setNewCategory(detail[0].category);
+      setNewDescription(detail[0].description);
     }, 2000);
-  }, []);
+  }, [detail]);
 
   const updateChange = (e) => {
     e.preventDefault();
@@ -79,6 +83,7 @@ const UpdateItem = () => {
                     <img src={detail[0].image2} alt="" />
                     <img src={detail[0].image3} alt="" />
                   </div>
+
                   <div className="title-input">
                     <label>Ürün Adı </label>
                     <input
@@ -87,6 +92,7 @@ const UpdateItem = () => {
                       onChange={(e) => setNewName(e.target.value)}
                     />
                   </div>
+
                   <div className="price-input">
                     <label>Ürün Fiyatı </label>
                     <input
