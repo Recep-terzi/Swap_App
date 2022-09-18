@@ -29,7 +29,7 @@
   font-size: 20px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .offer-title input,
@@ -38,9 +38,9 @@
 .offer-image input {
   width: 400px;
 }
-.offer-all-image {
-  display: flex;
-  justify-content: space-between;
+
+.offer-all-image label:hover {
+  cursor: pointer;
 }
 .offer-all-image img {
   width: 200px;
@@ -48,8 +48,13 @@
   padding: 10px;
   border-radius: 20px;
 }
-.first-col-md-6 {
-  border-right: 3px solid #000;
+
+.col-md-1 img {
+  width: 80px;
+  margin-left: 20px;
+}
+.col-md-1 img:last-child {
+  display: none;
 }
 .last-col-md-6 {
   padding-left: 35px;
@@ -65,4 +70,75 @@
 .offer-button:hover {
   background-color: #393e46;
   transition: 0.3s;
+}
+.offer-all-image .offer-all-image1 > input {
+  display: none;
+}
+.offer-all-image {
+  display: flex;
+  justify-content: space-between;
+}
+.offer-title input,
+.offer-price input,
+.offer-description input {
+  border: none;
+  background-color: #222831;
+  border-radius: 10px;
+  color: #fff;
+  padding-left: 7px;
+}
+.offer-title input:focus,
+.offer-price input:focus,
+.offer-description input:focus {
+  background-color: #393e46;
+  transition: 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .offer-container {
+    padding: 0;
+  }
+  .col-md-1 img {
+    display: none;
+  }
+  .offer-item-title p,
+  .offer-item-price p,
+  .offer-item-description p,
+  .offer-item-image p {
+    font-size: 18px;
+  }
+  .first-col-md-6 {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .col-md-1 img:last-child {
+    display: flex;
+  }
+  .col-md-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .offer-title {
+    display: block;
+  }
+  .offer-price {
+    display: block;
+  }
+  .offer-description {
+    display: block;
+  }
+  .offer-title input,
+  .offer-description input,
+  .offer-price input {
+    width: 100%;
+  }
+  .offer-all-image {
+    display: block;
+  }
+  .offer-all-image1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
