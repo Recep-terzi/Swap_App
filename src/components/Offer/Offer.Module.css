@@ -5,20 +5,64 @@
   margin-top: 100px;
 }
 
-.offer-title p,
-.offer-price p,
-.offer-description p,
-.offer-image p {
+.offer-item-title p,
+.offer-item-price p,
+.offer-item-description p,
+.offer-item-image p {
   font-size: 20px;
 }
-.offer-title p span,
-.offer-price p span,
-.offer-description p span {
+.offer-item-title p span,
+.offer-item-price p span,
+.offer-item-description p span {
   font-weight: bold;
 }
-.offer-image img {
+.offer-item-image img {
   width: 200px;
   height: 200px;
   padding: 10px;
   border-radius: 20px;
+}
+.offer-title,
+.offer-price,
+.offer-description,
+.offer-image {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.offer-title input,
+.offer-price input,
+.offer-description input,
+.offer-image input {
+  width: 400px;
+}
+.offer-all-image {
+  display: flex;
+  justify-content: space-between;
+}
+.offer-all-image img {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.first-col-md-6 {
+  border-right: 3px solid #000;
+}
+.last-col-md-6 {
+  padding-left: 35px;
+}
+.offer-button {
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: #222831;
+  border-radius: 10px;
+  color: #fff;
+}
+.offer-button:hover {
+  background-color: #393e46;
+  transition: 0.3s;
 }

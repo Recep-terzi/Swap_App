@@ -42,30 +42,64 @@ const Offer = () => {
           <div className="offer-container">
             {detail.map((item) => (
               <div className="row">
-                <div className="col-md-6">
-                  <div className="offer-title">
+                <div className="col-md-6 first-col-md-6">
+                  <div className="offer-item-title">
                     <p>
                       Seçilen Ürün : <span>{item.title}</span>
                     </p>
                   </div>
-                  <div className="offer-price">
+                  <div className="offer-item-price">
                     <p>
                       Seçilen Ürün Fiyatı: <span>{item.price} TL</span>
                     </p>
                   </div>
-                  <div className="offer-description">
+                  <div className="offer-item-description">
                     <p>
                       Seçilen Ürün Detayları : <span>{item.description}</span>
                     </p>
                   </div>
-                  <div className="offer-image">
+                  <div className="offer-item-image">
                     <p>Seçilen Ürün Resimleri:</p>
                     <img src={item.image} alt="img"></img>
                     <img src={item.image2} alt="img"></img>
                     <img src={item.image3} alt="img"></img>
                   </div>
                 </div>
-                <div className="col-md-6"></div>
+                <div className="col-md-6 last-col-md-6">
+                  <form>
+                    <div className="offer-title">
+                      Teklif edilen ürün adı:
+                      <input type="text" />
+                    </div>
+                    <div className="offer-price">
+                      Teklif edilen ürün fiyatı:
+                      <input type="text" />
+                    </div>
+                    <div className="offer-description">
+                      Teklif edilen ürün detayları:
+                      <input type="text" />
+                    </div>
+                    <div className="offer-image">
+                      Teklif edilen ürün resimleri:
+                      <input type="file" />
+                    </div>
+                    <div className="offer-all-image">
+                      <img
+                        src="https://icon-library.com/images/add-photo-icon/add-photo-icon-19.jpg"
+                        alt=""
+                      />
+                      <img
+                        src="https://icon-library.com/images/add-photo-icon/add-photo-icon-19.jpg"
+                        alt=""
+                      />
+                      <img
+                        src="https://icon-library.com/images/add-photo-icon/add-photo-icon-19.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <button className="offer-button"> Teklif Ver </button>
+                  </form>
+                </div>
               </div>
             ))}
           </div>
