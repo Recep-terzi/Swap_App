@@ -34,7 +34,7 @@
   line-height: 50px;
 }
 .sidebar .logo-details .logo_name {
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
@@ -207,6 +207,9 @@
 }
 .sidebar .profile-details .job {
   font-size: 12px;
+}
+.sidebar .profile-details .name-job {
+  margin-right: 50%;
 }
 .home-section {
   position: relative;

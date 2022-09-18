@@ -47,18 +47,18 @@ const Navbar = () => {
       <div className="sidebar closes">
         <div className="logo-details">
           <i className="fa-sharp fa-solid fa-p"></i>
-          <span className="logo_name">Pyson</span>
+          <span className="logo_name">Pyson Swap App</span>
         </div>
         <ul className="nav-links">
           <li>
             <Link to="/">
               <i className="bx bx-grid-alt"></i>
-              <span className="link_name">Dashboard</span>
+              <span className="link_name">Anasayfa</span>
             </Link>
             <ul className="sub-menu blank">
               <li>
                 <Link className="link_name" to="/">
-                  Category
+                  Anasayfa
                 </Link>
               </li>
             </ul>
@@ -280,10 +280,11 @@ const Navbar = () => {
                 <i className="fa-solid fa-user"></i>
               </div>
               <div className="name-job">
-                <div className="profile_name">Recep</div>
-                <div className="job">Web Desginer</div>
+                <div className="profile_name">
+                  {user ? user.displayName : "Giriş Yap"}
+                </div>
+                <div className="job"> {user ? user.displayName : "Satıcı"}</div>
               </div>
-              <i className="bx bx-log-out"></i>
             </div>
           </li>
         </ul>

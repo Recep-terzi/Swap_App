@@ -17,9 +17,7 @@
   text-align: center;
   padding-top: 12px;
 }
-.items-container {
-  width: 1500px;
-}
+
 @media screen and (max-width: 768px) {
   .home-container {
     padding: 0;
@@ -29,7 +27,6 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    width: 360px;
   }
   .slider {
     margin-left: 20px;
