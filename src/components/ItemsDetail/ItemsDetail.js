@@ -15,6 +15,7 @@ const ItemsDetail = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const detail = useSelector((state) => state.swap.detail);
+  console.log(detail);
   useEffect(() => {
     const ref = doc(db, "items", id);
     const data = [];
@@ -106,7 +107,9 @@ const ItemsDetail = () => {
                           impedit in doloribus!
                         </div>
                         <div className="info-button">
-                          <button className="teklifBtn"> Teklif Ver </button>
+                          <Link to={`/offer/${id}`}>
+                            <button className="teklifBtn"> Teklif Ver </button>
+                          </Link>
                           <button className="satinAlBtn"> Satın Al </button>
                         </div>
                       </div>

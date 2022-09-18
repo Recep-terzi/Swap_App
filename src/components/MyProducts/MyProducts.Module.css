@@ -37,12 +37,18 @@
   color: #fff;
   text-decoration: none;
 }
+.products-err {
+  margin-bottom: 424px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
 @media screen and (max-width: 767px) {
   .product-container {
     padding: 0;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-top: 30px;
+    margin-top: 100px;
+  }
+  .products-err {
+    margin-bottom: 250px;
   }
 }

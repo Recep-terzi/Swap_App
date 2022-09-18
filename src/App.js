@@ -16,6 +16,7 @@ import Technology from "./components/Technology/Technology";
 import Other from "./components/Other/Other";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
 import NotFound from "./components/NotFound/NotFound";
+import Offer from "./components/Offer/Offer";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.swap.user);
@@ -57,6 +58,7 @@ function App() {
           <Route path="/technology" element={<Technology />} />
           <Route path="/other" element={<Other />} />
           <Route path="/*" element={<NotFound />} />
+          <Route path="/offer/:id" element={<Offer />} />
 
           {!user ? (
             <Route path="/*" element={<NotFound />} />

@@ -15,7 +15,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 600px;
+  height: 620px;
   width: 800px;
   background-color: #222831;
   color: #fff;
@@ -42,7 +42,7 @@
 .description-input textarea {
   height: 70px;
 }
-.title-input label {
+.title-input p {
   font-size: 20px;
 }
 .price-input {
@@ -51,7 +51,7 @@
   margin-bottom: 30px;
 }
 
-.price-input label {
+.price-input p {
   font-size: 20px;
 }
 .category-selection {
@@ -59,7 +59,7 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.category-selection label {
+.category-selection p {
   font-size: 20px;
 }
 
@@ -68,7 +68,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.description-input label {
+.description-input p {
   font-size: 20px;
 }
 
@@ -99,4 +99,38 @@
   background-color: #222831;
   border: 1px solid #fff;
   transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .updateitem-container {
+    padding: 0;
+  }
+  .form-card {
+    width: auto;
+    height: auto;
+  }
+  .title-input,
+  .price-input,
+  .category-selection,
+  .description-input {
+    display: block;
+  }
+  .title-input input,
+  .price-input input,
+  .category-selection select,
+  .description-input textarea {
+    width: 100%;
+  }
+  .title-input p,
+  .price-input p,
+  .category-selection p,
+  .description-input p {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .update-item-img img {
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+  }
 }

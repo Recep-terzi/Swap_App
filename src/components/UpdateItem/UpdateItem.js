@@ -85,7 +85,7 @@ const UpdateItem = () => {
                   </div>
 
                   <div className="title-input">
-                    <label>Ürün Adı </label>
+                    <p>Ürün Adı </p>
                     <input
                       type="text"
                       value={newName}
@@ -94,7 +94,7 @@ const UpdateItem = () => {
                   </div>
 
                   <div className="price-input">
-                    <label>Ürün Fiyatı </label>
+                    <p>Ürün Fiyatı </p>
                     <input
                       type="text"
                       value={newPrice}
@@ -102,7 +102,7 @@ const UpdateItem = () => {
                     />
                   </div>
                   <div className="category-selection">
-                    <label> Ürün Kategorisi </label>
+                    <p> Ürün Kategorisi </p>
                     <select
                       value={newCategory}
                       onChange={(e) => setNewCategory(e.target.value)}
@@ -113,7 +113,7 @@ const UpdateItem = () => {
                     </select>
                   </div>
                   <div className="description-input">
-                    <label>Ürün Açıklaması</label>
+                    <p>Ürün Açıklaması</p>
                     <textarea
                       value={newDescription}
                       onChange={(e) => setNewDescription(e.target.value)}

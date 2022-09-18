@@ -93,12 +93,14 @@ const Modal = ({ open, setOpen }) => {
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               fullWidth
+              required
               variant="standard"
             />
             <TextField
               margin="dense"
               id="name"
               label="Ürün Fiyatı"
+              required
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               type="text"
@@ -114,6 +116,7 @@ const Modal = ({ open, setOpen }) => {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
+                  required
                   label="Kategori Seçiniz"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
@@ -132,6 +135,7 @@ const Modal = ({ open, setOpen }) => {
                 margin="dense"
                 id="name"
                 value={""}
+                required
                 className="file-input"
                 accept="image/*"
                 onChange={(e) => {
@@ -152,6 +156,7 @@ const Modal = ({ open, setOpen }) => {
               <input
                 margin="dense"
                 id="name"
+                required
                 className="file-input"
                 value={""}
                 accept="image/*"
@@ -175,6 +180,7 @@ const Modal = ({ open, setOpen }) => {
                 margin="dense"
                 className="file-input"
                 id="name"
+                required
                 value={""}
                 onChange={(e) => {
                   const file = e.currentTarget.files[0];
@@ -194,6 +200,7 @@ const Modal = ({ open, setOpen }) => {
               margin="dense"
               id="outlined-multiline-static"
               label="Ürünün Açıklaması"
+              required
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               type="text"

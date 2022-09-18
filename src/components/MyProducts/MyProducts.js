@@ -83,8 +83,8 @@ const MyProducts = () => {
           )}
         </div>
         {items.length === 0 && (
-          <div className="err">
-            <h1>Ürününüz bulunmamaktadır...</h1>
+          <div className="products-err">
+            <p>Ürününüz bulunmamaktadır...</p>
           </div>
         )}
       </div>
