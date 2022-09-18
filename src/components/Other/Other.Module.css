@@ -3,3 +3,17 @@
   padding-right: 220px;
   margin-bottom: 100px;
 }
+@media screen and (max-width: 768px) {
+  .other-container {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+  }
+  .err {
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+  }
+}

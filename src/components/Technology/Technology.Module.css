@@ -7,3 +7,12 @@
   margin-bottom: 424px;
   text-align: center;
 }
+@media screen and (max-width: 768px) {
+  .clothes-container {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+  }
+}
