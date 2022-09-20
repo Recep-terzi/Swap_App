@@ -135,7 +135,6 @@ const Modal = ({ open, setOpen }) => {
                 margin="dense"
                 id="name"
                 value={""}
-                required
                 className="file-input"
                 accept="image/*"
                 onChange={(e) => {
@@ -156,7 +155,6 @@ const Modal = ({ open, setOpen }) => {
               <input
                 margin="dense"
                 id="name"
-                required
                 className="file-input"
                 value={""}
                 accept="image/*"
@@ -180,7 +178,6 @@ const Modal = ({ open, setOpen }) => {
                 margin="dense"
                 className="file-input"
                 id="name"
-                required
                 value={""}
                 onChange={(e) => {
                   const file = e.currentTarget.files[0];

@@ -80,7 +80,7 @@
 }
 .carousel .slider-wrapper {
   width: 500px;
-  height: 500px;
+  height: 700px;
 }
 @media screen and (max-width: 768px) {
   .carousel .slider-wrapper {

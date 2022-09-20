@@ -9,7 +9,8 @@ import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
 import { db, storage } from "../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
-
+import "alertifyjs/build/css/alertify.css";
+import alertify from "alertifyjs";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 
@@ -51,6 +52,8 @@ const Offer = () => {
       await addDoc(ref, {
         ...doc,
       });
+
+      alertify.success("Teklifiniz kullanıcıya iletildi. İyi takaslar :)");
       console.log("eklendi");
     } catch (error) {
       console.log(error);
