@@ -3,13 +3,14 @@ import "./Offer.Module.css";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import { db, storage } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/swapSlice";
 import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
+import { db, storage } from "../../firebase/config";
+import { addDoc, collection } from "firebase/firestore";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 
 const Offer = () => {
@@ -19,25 +20,42 @@ const Offer = () => {
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
+  const [offerTitle, setOfferTitle] = useState();
+  const [offerPrice, setOfferPrice] = useState();
+  const [offerDescription, setOfferDescription] = useState();
   const detail = useSelector((state) => state.swap.detail);
-  console.log(image2);
-  useEffect(() => {
-    const ref = doc(db, "items", id);
-    const data = [];
-    getDoc(ref).then((snap) => {
-      if (snap.exists) {
-        data.push(snap.data());
-      } else {
-        console.log("error");
-      }
-      dispatch(getDetail(data));
-    });
-  }, [dispatch, id]);
+  console.log(detail);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const doc = {
+      title: offerTitle,
+      price: offerPrice,
+      image: image,
+      image2: image2,
+      image3: image3,
+      description: offerDescription,
+      item_title: detail[0].title,
+      item_price: detail[0].price,
+      item_description: detail[0].description,
+      item_email: detail[0].email,
+    };
+    const ref = collection(db, "sellerItem");
+    try {
+      await addDoc(ref, {
+        ...doc,
+      });
+      console.log("eklendi");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       {loading && <Loading />}
@@ -82,18 +100,30 @@ const Offer = () => {
                 </div>
 
                 <div className="col-md-6 last-col-md-6">
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="offer-title">
                       Teklif edilen ürün adı:
-                      <input type="text" />
+                      <input
+                        type="text"
+                        value={offerTitle}
+                        onChange={(e) => setOfferTitle(e.target.value)}
+                      />
                     </div>
                     <div className="offer-price">
                       Teklif edilen ürün fiyatı:
-                      <input type="text" />
+                      <input
+                        type="text"
+                        value={offerPrice}
+                        onChange={(e) => setOfferPrice(e.target.value)}
+                      />
                     </div>
                     <div className="offer-description">
                       Teklif edilen ürün detayları:
-                      <input type="text" />
+                      <input
+                        type="text"
+                        value={offerDescription}
+                        onChange={(e) => setOfferDescription(e.target.value)}
+                      />
                     </div>
                     <div className="offer-image">
                       Teklif edilen ürün resimleri:
@@ -114,6 +144,7 @@ const Offer = () => {
                           type="file"
                           id="file-input"
                           accept="image/*"
+                          value={""}
                           onChange={(e) => {
                             const file = e.currentTarget.files[0];
                             const imageRef = ref(
@@ -141,6 +172,7 @@ const Offer = () => {
                         <input
                           type="file"
                           id="file-input2"
+                          value={""}
                           accept="image/*"
                           onChange={(e) => {
                             const file = e.currentTarget.files[0];
@@ -169,6 +201,7 @@ const Offer = () => {
                         <input
                           type="file"
                           id="file-input3"
+                          value={""}
                           accept="image/*"
                           onChange={(e) => {
                             const file = e.currentTarget.files[0];
@@ -184,7 +217,9 @@ const Offer = () => {
                         />
                       </div>
                     </div>
-                    <button className="offer-button"> Teklif Ver </button>
+                    <button className="offer-button" type="submit">
+                      Teklif Ver
+                    </button>
                   </form>
                 </div>
               </div>
