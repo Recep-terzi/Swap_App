@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./UpdateItem.Module.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,7 @@ const UpdateItem = () => {
   const [newPrice, setNewPrice] = useState();
   const [newCategory, setNewCategory] = useState();
   const [newDescription, setNewDescription] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     const ref = doc(db, "items", id);
     const data = [];
@@ -51,6 +52,7 @@ const UpdateItem = () => {
     })
       .then((res) => {
         console.log("success");
+        navigate("/products");
       })
       .catch((err) => {
         console.log(err.message);

@@ -26,6 +26,7 @@ const Modal = ({ open, setOpen }) => {
   const user = useSelector((state) => state.swap.user);
   const [description, setDescription] = useState();
   const theme = useTheme();
+  console.log(image);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const handleClose = () => {
     setOpen(false);
