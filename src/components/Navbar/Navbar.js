@@ -103,6 +103,19 @@ const Navbar = () => {
               </li>
             </ul>
           </li>
+          <li>
+            <Link to="/contact">
+              <i class="fa-solid fa-envelopes-bulk"></i>
+              <span className="link_name">İletişim</span>
+            </Link>
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/contact">
+                  İletişim
+                </Link>
+              </li>
+            </ul>
+          </li>
           {user && (
             <>
               <li>
