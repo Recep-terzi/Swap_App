@@ -5,6 +5,7 @@
 }
 .card-button-group {
   display: flex;
+
   height: 100%;
 }
 .card-button-group .update-item {

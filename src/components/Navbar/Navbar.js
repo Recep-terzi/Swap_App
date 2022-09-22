@@ -213,7 +213,7 @@ const Navbar = () => {
                 <div className="profile_name">
                   {user ? user.displayName : "Giriş Yap"}
                 </div>
-                <div className="job"> {user ? user.displayName : "Satıcı"}</div>
+                <div className="job"> Satıcı </div>
               </div>
             </div>
           </li>
