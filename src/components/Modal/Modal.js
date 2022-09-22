@@ -93,6 +93,7 @@ const Modal = ({ open, setOpen }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
+              autoComplete="off"
               fullWidth
               required
               variant="standard"
@@ -104,6 +105,7 @@ const Modal = ({ open, setOpen }) => {
               required
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              autoComplete="off"
               type="text"
               fullWidth
               variant="standard"
@@ -197,6 +199,7 @@ const Modal = ({ open, setOpen }) => {
             <TextField
               margin="dense"
               id="outlined-multiline-static"
+              autoComplete="off"
               label="Ürünün Açıklaması"
               required
               value={description}
