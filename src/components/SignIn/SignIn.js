@@ -17,7 +17,6 @@ const SignIn = () => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
   const hidden = useSelector((state) => state.swap.hidden);
-  const user = useSelector((state) => state.swap.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = (e) => {

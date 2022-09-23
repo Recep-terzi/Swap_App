@@ -5,15 +5,10 @@ import clothes from "../../assets/clothes.png";
 import swap from "../../assets/swap.png";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/config";
-import { setLogout, setUser } from "../../redux/swapSlice";
+
 import Loading from "../Loading/Loading";
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const user = useSelector((state) => state.swap.user);
-  console.log(user);
   // const user = useSelector((state) => state.swap.user);
   // const dispatch = useDispatch();
   // useEffect(() => {

@@ -2,14 +2,7 @@ import React, { useEffect } from "react";
 import "./Clothes.Module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { getClothesItems } from "../../redux/swapSlice";
 import { Link } from "react-router-dom";
@@ -17,7 +10,6 @@ import Footer from "../../components/Footer/Footer";
 const Clothes = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.swap.clothesItems);
-  console.log(items);
   useEffect(() => {
     const ref = collection(db, "items");
     const q = query(ref, where("category", "==", "Kıyafet"));

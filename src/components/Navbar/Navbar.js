@@ -14,7 +14,6 @@ const Navbar = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  console.log(user);
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
@@ -22,7 +21,6 @@ const Navbar = () => {
         dispatch(logout());
         localStorage.removeItem("user");
         navigate("/");
-        console.log(user);
       })
       .catch((error) => {
         console.log(error.message);
@@ -105,7 +103,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/contact">
-              <i class="fa-solid fa-envelopes-bulk"></i>
+              <i className="fa-solid fa-envelopes-bulk"></i>
               <span className="link_name">İletişim</span>
             </Link>
             <ul className="sub-menu blank">
@@ -120,7 +118,7 @@ const Navbar = () => {
             <>
               <li>
                 <Link to="/products">
-                  <i class="fa-brands fa-product-hunt"></i>
+                  <i className="fa-brands fa-product-hunt"></i>
 
                   <span className="link_name">Ürünlerim</span>
                 </Link>
@@ -204,7 +202,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/signin">
-                  <i class="fa-solid fa-user-plus"></i>
+                  <i className="fa-solid fa-user-plus"></i>
                   <span className="link_name">Kayıt Ol</span>
                 </Link>
                 <ul className="sub-menu blank">

@@ -14,10 +14,8 @@ const Login = () => {
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.swap.user);
   const hidden = useSelector((state) => state.swap.hidden);
   const navigate = useNavigate();
-  console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();

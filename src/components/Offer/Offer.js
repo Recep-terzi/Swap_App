@@ -1,10 +1,7 @@
 import Navbar from "../Navbar/Navbar";
 import "./Offer.Module.css";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../redux/swapSlice";
+import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
 import { db, storage } from "../../firebase/config";
@@ -15,8 +12,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 
 const Offer = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);

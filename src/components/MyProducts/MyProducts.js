@@ -18,7 +18,6 @@ const MyProducts = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.swap.user);
   const items = useSelector((state) => state.swap.productItems);
-  console.log(items);
   useEffect(() => {
     const ref = collection(db, "items");
     const q = query(ref, where("email", "==", user?.email));

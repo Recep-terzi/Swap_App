@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import "./Technology.Module.css";
 import { db } from "../../firebase/config";
 import Footer from "../../components/Footer/Footer";
@@ -17,7 +10,6 @@ import { Link } from "react-router-dom";
 const Technology = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.swap.technologyItems);
-  console.log(items);
   useEffect(() => {
     const ref = collection(db, "items");
     const q = query(ref, where("category", "==", "Teknolojik Ürünler"));

@@ -2,14 +2,7 @@ import React, { useEffect } from "react";
 import "./Other.Module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { getOtherItems } from "../../redux/swapSlice";
 import Footer from "../../components/Footer/Footer";
@@ -17,7 +10,6 @@ import { Link } from "react-router-dom";
 const Other = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.swap.otherItems);
-  console.log(items);
   useEffect(() => {
     const ref = collection(db, "items");
     const q = query(ref, where("category", "==", "Diğer"));
