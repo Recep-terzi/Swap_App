@@ -26,11 +26,11 @@ const Modal = ({ open, setOpen }) => {
   const user = useSelector((state) => state.swap.user);
   const [description, setDescription] = useState();
   const theme = useTheme();
+  console.log(image);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const handleClose = () => {
     setOpen(false);
   };
-
   const FixedButton = styled(Button)({
     backgroundColor: "#222831",
     color: "#fff",
@@ -64,6 +64,7 @@ const Modal = ({ open, setOpen }) => {
     } catch (error) {
       console.log(error);
     }
+    setImage(null);
   };
 
   const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
@@ -147,6 +148,7 @@ const Modal = ({ open, setOpen }) => {
                     setImage(url);
                   });
                 }}
+                fullWidth
                 type="file"
                 variant="standard"
               />
@@ -167,6 +169,7 @@ const Modal = ({ open, setOpen }) => {
                     setImage2(url);
                   });
                 }}
+                fullWidth
                 type="file"
                 variant="standard"
               />
@@ -188,6 +191,7 @@ const Modal = ({ open, setOpen }) => {
                   });
                 }}
                 type="file"
+                fullWidth
                 variant="standard"
               />
             </div>
