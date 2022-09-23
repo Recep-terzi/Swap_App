@@ -58,7 +58,7 @@ const Footer = () => {
               <li>
                 <a
                   className="linkedin"
-                  href="/"
+                  href="https://twitter.com/Recep_Terzi_67"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -68,7 +68,7 @@ const Footer = () => {
               <li>
                 <a
                   className="linkedin"
-                  href="/"
+                  href="https://www.linkedin.com/in/recepterzi/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -78,41 +78,21 @@ const Footer = () => {
               <li>
                 <a
                   className="linkedin"
-                  href="/"
+                  href="https://github.com/Recep-terzi"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fa-brands fa-youtube"></i>
+                  <i className="fa-brands fa-github"></i>
                 </a>
               </li>
               <li>
                 <a
                   className="linkedin"
-                  href="/"
+                  href="https://www.instagram.com/recepterziiii/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <i className="fa-brands fa-instagram"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="linkedin"
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="linkedin"
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fa-brands fa-twitch"></i>
                 </a>
               </li>
             </ul>
