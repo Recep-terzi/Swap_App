@@ -5,8 +5,8 @@
 }
 .card-button-group {
   display: flex;
-
-  height: 100%;
+  height: 30px;
+  margin-top: auto;
 }
 .card-button-group .update-item {
   border: none;

@@ -69,6 +69,12 @@ const Modal = ({ open, setOpen }) => {
 
   const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
 
+  const updateImage = (imageRef) => {
+    getDownloadURL(imageRef).then((url) => {
+      setImage(url);
+    });
+  };
+
   return (
     <>
       <Dialog
@@ -144,9 +150,7 @@ const Modal = ({ open, setOpen }) => {
                   const file = e.currentTarget.files[0];
                   const imageRef = ref(storage, `photos/${file.name}`);
                   uploadBytes(imageRef, file);
-                  getDownloadURL(imageRef).then((url) => {
-                    setImage(url);
-                  });
+                  updateImage(imageRef);
                 }}
                 fullWidth
                 type="file"
