@@ -38,9 +38,4 @@
   color: rgba(0, 0, 0, 0);
   width: 100px;
 }
-@media screen and (max-width: 768px) {
-  .file-input {
-  }
-  .css-ypiqx9-MuiDialogContent-root {
-  }
-}
+
