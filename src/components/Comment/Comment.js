@@ -8,6 +8,7 @@ const Comment = () => {
   const { id } = useParams();
   const [newComment, setNewComment] = useState([]);
   const detail = useSelector((state) => state.swap.detail);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const ref = doc(db, "items", id);
