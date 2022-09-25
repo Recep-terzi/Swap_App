@@ -90,4 +90,9 @@
   .detail-container {
     padding: 0;
   }
+  .info-button {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }

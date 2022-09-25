@@ -66,7 +66,7 @@ const Navbar = () => {
             <div className="iocn-link">
               <Link to="/">
                 <i className="bx bx-collection"></i>
-                <span className="link_name">Category</span>
+                <span className="link_name">Kategoriler</span>
               </Link>
               <i className="bx bxs-chevron-down arrow"></i>
             </div>
@@ -88,19 +88,6 @@ const Navbar = () => {
             </ul>
           </li>
 
-          <li>
-            <Link to="/">
-              <i className="bx bx-history"></i>
-              <span className="link_name">History</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/">
-                  History
-                </Link>
-              </li>
-            </ul>
-          </li>
           <li>
             <Link to="/contact">
               <i className="fa-solid fa-envelopes-bulk"></i>

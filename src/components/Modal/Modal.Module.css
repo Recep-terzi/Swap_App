@@ -36,5 +36,11 @@
 }
 .file-input {
   color: rgba(0, 0, 0, 0);
-  margin-left: 215px;
+  width: 100px;
+}
+@media screen and (max-width: 768px) {
+  .file-input {
+  }
+  .css-ypiqx9-MuiDialogContent-root {
+  }
 }

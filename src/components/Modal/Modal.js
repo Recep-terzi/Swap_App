@@ -69,11 +69,7 @@ const Modal = ({ open, setOpen }) => {
 
   const categories = ["Kıyafet", "Teknolojik Ürünler", "Diğer"];
 
-  const updateImage = (imageRef) => {
-    getDownloadURL(imageRef).then((url) => {
-      setImage(url);
-    });
-  };
+ 
 
   return (
     <>
@@ -150,7 +146,9 @@ const Modal = ({ open, setOpen }) => {
                   const file = e.currentTarget.files[0];
                   const imageRef = ref(storage, `photos/${file.name}`);
                   uploadBytes(imageRef, file);
-                  updateImage(imageRef);
+                  getDownloadURL(imageRef).then((url) => {
+                    setImage(url);
+                  });
                 }}
                 fullWidth
                 type="file"
