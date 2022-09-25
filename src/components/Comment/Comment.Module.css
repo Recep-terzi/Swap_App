@@ -1,0 +1,63 @@
+.comment-container {
+  margin-left: 120px;
+  margin-bottom: 60px;
+  width: 100%;
+}
+.comment-div {
+  background-color: #fff;
+  padding: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.comment-main-title {
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.title-time-div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+.comment-time {
+  font-size: 20px;
+}
+.comment-description {
+  font-size: 15px;
+}
+.input-button-div {
+  margin-top: 50px;
+}
+.input-button-div h2 {
+  margin-bottom: 30px;
+}
+.input-button-div .input-div textarea {
+  width: 100%;
+  padding: 20px;
+  height: 150px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: none;
+}
+.input-button-div .input-div .comment--title {
+  width: 100%;
+  padding: 20px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+}
+.input-button-div button {
+  width: 100%;
+  background-color: #222831;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+}
+.input-button-div button:hover {
+  background-color: #393e46;
+  transition: 0.3s ease;
+}

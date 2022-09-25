@@ -10,6 +10,7 @@ import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Comment from "../Comment/Comment";
 const ItemsDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -114,6 +115,7 @@ const ItemsDetail = () => {
                         </div>
                       </div>
                     </div>
+                    <Comment />
                   </div>
                 ))}
               </>
