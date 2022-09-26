@@ -8,24 +8,36 @@ const Comment = () => {
   const { id } = useParams();
   const [newComment, setNewComment] = useState([]);
   const detail = useSelector((state) => state.swap.detail);
-
+  const user = useSelector((state) => state.swap.user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const ref = doc(db, "items", id);
-    updateDoc(ref, {
-      comment: [...detail[0].comment, newComment],
-    })
-      .then((res) => {
-        console.log("success");
+    if (detail[0].comment) {
+      updateDoc(ref, {
+        comment: [...detail[0].comment, newComment],
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+        .then((res) => {
+          console.log("success");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    } else {
+      updateDoc(ref, {
+        comment: [newComment],
+      })
+        .then((res) => {
+          console.log("success");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
   };
   return (
     <>
       <div className="comment-container">
-        <div className="comment-main-title">Yorumlar</div>
+        <div className="comment-main-title">Yorumlar </div>
         <form onSubmit={handleSubmit}>
           {detail[0].comment ? (
             <>
@@ -33,9 +45,9 @@ const Comment = () => {
                 <>
                   <div className="comment-div">
                     <div className="author-time-div">
-                      <div className="comment-author">Pyson</div>
+                      <div className="comment-author">{user.displayName}</div>
 
-                      <div className="comment-time">25.09.2022</div>
+                      <div className="comment-time">26.09.2022</div>
                     </div>
                     <div className="comment-description">{det}</div>
                   </div>
@@ -56,7 +68,7 @@ const Comment = () => {
                 onChange={(e) => setNewComment(e.target.value)}
               />
             </div>
-            <button type="submit">Gönder</button>
+            <button type="submit">Yorumla !</button>
           </div>
         </form>
       </div>

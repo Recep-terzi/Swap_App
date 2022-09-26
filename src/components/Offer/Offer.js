@@ -10,12 +10,13 @@ import "alertifyjs/build/css/alertify.css";
 import alertify from "alertifyjs";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
-
+import { useNavigate } from "react-router-dom";
 const Offer = () => {
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
+  const navigate = useNavigate();
   const [offerTitle, setOfferTitle] = useState();
   const [offerPrice, setOfferPrice] = useState();
   const [offerDescription, setOfferDescription] = useState();
@@ -50,6 +51,9 @@ const Offer = () => {
 
       alertify.success("Teklifiniz kullanıcıya iletildi. İyi takaslar :)");
       console.log("eklendi");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +67,7 @@ const Offer = () => {
           <div className="offer-container">
             {detail.map((item) => (
               <div className="row">
-                <div className="col-md-5.5 first-col-md-6">
+                <div className="col-md-6 first-col-md-6">
                   <div className="offer-item-title">
                     <p>
                       Seçilen Ürün : <span>{item.title}</span>
@@ -86,7 +90,7 @@ const Offer = () => {
                     <img src={item.image3} alt="img"></img>
                   </div>
                 </div>
-                <div className="col-md-1">
+                <div className="col-md-1 icon-div">
                   <img
                     src="http://cdn.onlinewebfonts.com/svg/img_418607.png"
                     alt=""
@@ -97,7 +101,7 @@ const Offer = () => {
                   />
                 </div>
 
-                <div className="col-md-6 last-col-md-6">
+                <div className="col-md-5 last-col-md-6">
                   <form onSubmit={handleSubmit}>
                     <div className="offer-title">
                       Teklif edilen ürün adı:

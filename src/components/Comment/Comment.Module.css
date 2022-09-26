@@ -65,3 +65,15 @@
   background-color: #393e46;
   transition: 0.3s ease;
 }
+@media screen and (max-width: 768px) {
+  .comment-container {
+    margin: 0;
+  }
+  .comment-main-title {
+    margin-top: 20px;
+  }
+  .input-button-div h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+}

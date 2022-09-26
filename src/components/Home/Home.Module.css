@@ -68,6 +68,12 @@
   .row {
     margin: 0;
   }
+  .items-container-title {
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 150px;
+    font-weight: bold;
+  }
 }
 
 .home-row {
@@ -141,4 +147,11 @@
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+.items-container-title {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: -120px;
+  margin-top: 100px;
+  font-weight: bold;
 }

@@ -92,6 +92,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <div className="items-container-title">~ Ürünlerimiz ~</div>
             <div className="items-container">
               <Items />
             </div>

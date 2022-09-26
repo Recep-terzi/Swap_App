@@ -52,4 +52,15 @@
   .products-err {
     margin-bottom: 250px;
   }
+  .product-title {
+    margin: 0;
+    padding-bottom: 120px;
+  }
+}
+.product-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: -100px;
 }

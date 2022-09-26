@@ -1,5 +1,5 @@
 .offer-container {
-  padding-left: 320px;
+  padding-left: 220px;
   padding-right: 220px;
   margin-bottom: 200px;
   margin-top: 100px;
@@ -30,13 +30,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 7px;
-}
-
-.offer-title input,
-.offer-price input,
-.offer-description input,
-.offer-image input {
-  width: 400px;
 }
 
 .offer-all-image label:hover {
@@ -82,7 +75,7 @@
 .offer-price input,
 .offer-description input {
   border: none;
-  background-color: #222831;
+  background-color: #575756;
   border-radius: 10px;
   color: #fff;
   padding-left: 7px;
@@ -92,6 +85,9 @@
 .offer-description input:focus {
   background-color: #393e46;
   transition: 0.3s ease-in-out;
+}
+.icon-div {
+  padding: 0px;
 }
 @media screen and (max-width: 768px) {
   .offer-container {

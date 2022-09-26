@@ -40,6 +40,7 @@ const MyProducts = () => {
     <>
       <Navbar />
       <div className="product-container">
+        <div className="product-title">~ Ürünlerim ~</div>
         <div className="items-div">
           {items && (
             <>
