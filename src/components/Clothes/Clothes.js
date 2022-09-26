@@ -30,6 +30,8 @@ const Clothes = () => {
       <Navbar />
 
       <div className="clothes-container">
+        <div className="clothes-title">~ Kıyafetler ~</div>
+
         <div className="items-div">
           {items && (
             <>

@@ -30,6 +30,8 @@ const Other = () => {
       <Navbar />
 
       <div className="other-container">
+        <div className="other-title">~ Diğer Ürünler ~</div>
+
         <div className="items-div">
           {items && (
             <>

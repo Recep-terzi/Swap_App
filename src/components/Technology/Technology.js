@@ -29,6 +29,8 @@ const Technology = () => {
     <>
       <Navbar />
       <div className="technology-container">
+        <div className="technology-title">~ Teknolojik Ürünler ~</div>
+
         <div className="items-div">
           {items && (
             <>

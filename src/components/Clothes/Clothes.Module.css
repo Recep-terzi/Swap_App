@@ -11,4 +11,15 @@
     text-align: center;
     display: flex;
   }
+  .product-title {
+    margin: 0;
+    padding-bottom: 120px;
+  }
+}
+.clothes-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: -100px;
 }

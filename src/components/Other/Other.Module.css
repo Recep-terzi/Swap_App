@@ -16,4 +16,15 @@
   .err {
     margin-bottom: 250px;
   }
+  .other-title {
+    margin: 0;
+    padding-bottom: 120px;
+  }
+}
+.other-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: -100px;
 }
