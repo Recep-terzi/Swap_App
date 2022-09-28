@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ItemsDetail.Module.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,10 +11,13 @@ import Footer from "../Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Comment from "../Comment/Comment";
+import "alertifyjs/build/css/alertify.css";
+import alertify from "alertifyjs";
 const ItemsDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const detail = useSelector((state) => state.swap.detail);
   console.log(detail);
   useEffect(() => {
@@ -34,6 +37,15 @@ const ItemsDetail = () => {
       setLoading(false);
     }, 2000);
   }, []);
+
+  const buyItem = () => {
+    alertify.success(
+      "Satın alma talebiniz satıcıya iletildi. İyi takaslar dileriz :)"
+    );
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
+  };
 
   return (
     <>
@@ -111,7 +123,13 @@ const ItemsDetail = () => {
                           <Link to={`/offer/${id}`}>
                             <button className="teklifBtn"> Teklif Ver </button>
                           </Link>
-                          <button className="satinAlBtn"> Satın Al </button>
+                          <button
+                            className="satinAlBtn"
+                            onClick={() => buyItem()}
+                          >
+                            {" "}
+                            Satın Al{" "}
+                          </button>
                         </div>
                       </div>
                     </div>
