@@ -45,7 +45,9 @@ const Comment = () => {
                 <>
                   <div className="comment-div">
                     <div className="author-time-div">
-                      <div className="comment-author">{user.displayName}</div>
+                      {user && (
+                        <div className="comment-author">{user.displayName}</div>
+                      )}
 
                       <div className="comment-time">26.09.2022</div>
                     </div>
@@ -58,18 +60,27 @@ const Comment = () => {
             <h1>Yorum yok</h1>
           )}
 
-          <div className="input-button-div">
-            <h2>Haydi, sende yorum yap!</h2>
-            <div className="input-div">
-              <textarea
-                type="text"
-                placeholder="Yorum Açıklaması"
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-              />
+          {user && (
+            <div className="input-button-div">
+              <h2>Haydi, sende yorum yap!</h2>
+              <div className="input-div">
+                <textarea
+                  type="text"
+                  placeholder="Yorum Açıklaması"
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                />
+              </div>
+              <button type="submit">Yorumla !</button>
             </div>
-            <button type="submit">Yorumla !</button>
-          </div>
+          )}
+          {!user && (
+            <>
+              <p className="comment-login-text">
+                Yorum yapabilmek için lütfen giriş yapınız veya kayıt olunuz.
+              </p>
+            </>
+          )}
         </form>
       </div>
     </>

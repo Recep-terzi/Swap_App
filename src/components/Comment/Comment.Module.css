@@ -77,3 +77,9 @@
     font-size: 20px;
   }
 }
+.comment-login-text {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
