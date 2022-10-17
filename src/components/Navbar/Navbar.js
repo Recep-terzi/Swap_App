@@ -135,7 +135,7 @@ const Navbar = () => {
                 )
               } */}
               <li>
-                <a>
+                <a href="/">
                   <i
                     className="fa-solid fa-square-plus"
                     onClick={handleClickOpen}
