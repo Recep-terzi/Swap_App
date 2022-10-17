@@ -135,19 +135,17 @@ const Navbar = () => {
                 )
               } */}
               <li>
-                <a href="/">
-                  <i
-                    className="fa-solid fa-square-plus"
-                    onClick={handleClickOpen}
-                  ></i>
-                  <span className="link_name">Ürün Ekle</span>
+                <i
+                  className="fa-solid fa-square-plus"
+                  onClick={handleClickOpen}
+                ></i>
+                <span className="link_name">Ürün Ekle</span>
 
-                  <Modal
-                    handleClickOpen={handleClickOpen}
-                    open={open}
-                    setOpen={setOpen}
-                  />
-                </a>
+                <Modal
+                  handleClickOpen={handleClickOpen}
+                  open={open}
+                  setOpen={setOpen}
+                />
                 <ul className="sub-menu blank">
                   <li>
                     <Link className="link_name" to="/additem">
